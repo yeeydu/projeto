@@ -1,0 +1,23 @@
+@media (min-width:992px) {
+    .vertical-nav {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        width: 170px;
+        height: 100%;
+        background-color: #1D2B36;
+        overflow-y: auto;
+        padding-top: 30px;
+
+    }
+
+    .container{
+        height: auto;
+        min-height: 100%;
+        width: 100%;
+        position: relative;
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
+
+}
+

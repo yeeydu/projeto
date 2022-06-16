@@ -1,0 +1,21 @@
+.footer {
+    padding: 1rem 0;
+    background: var(--light);
+}
+.footer__social {
+    gap: 16px;
+}
+
+.footer__social-link {
+    color: var(--secondary);
+    font-size: 18px;
+
+    &:hover {
+        color: var(--dark);
+        opacity: 0.6;
+    }
+
+    i.fab {
+        gap: 36px;
+    }
+}
