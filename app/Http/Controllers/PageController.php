@@ -94,13 +94,13 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      $paginas = Pagina::all();
-      //$paginas = Pagina::where('title','corporate');
+      //$paginas = Pagina::all();
+      $pagina = Pagina::where('title','corporate')->first();
       $videos = Video::select("*")
       ->where("category_id",5)
       ->orderBy("order", "asc")->get();
 
-       return view('pages/corporate', ['videos' => $videos, 'paginas' => $paginas, 'shareComponent' => $shareComponent]);
+       return view('pages/corporate', ['videos' => $videos, 'pagina' => $pagina, 'shareComponent' => $shareComponent]);
     }
 
     public function precos()   // pagina preços
@@ -111,13 +111,13 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      $paginas = Pagina::all();
-      //$paginas = Pagina::where('title','precos');
-       return view('pages/precos', [  'paginas' => $paginas, 'shareComponent' => $shareComponent]);
+      //$paginas = Pagina::all();
+      $pagina = Pagina::where('title','precos')->first();
+       return view('pages/precos', [ 'pagina' => $pagina, 'shareComponent' => $shareComponent]);
     }
 
 
-    public function cookies()   // pagina preços
+    public function cookies()   // pagina cookies
     {
       $shareComponent = \Share::page('http://diogopinto.pt', 'Fotografia & Video')
       ->facebook('Diogo Pinto')
@@ -150,11 +150,10 @@ class PageController extends Controller
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
-        //teste
-      $paginas = Pagina::all();
-      //$paginas = Pagina::where('title','contactos');
 
-       return view('pages/contactos',  [  'paginas' => $paginas, 'shareComponent' => $shareComponent]);
+      $pagina = Pagina::where('title','contactos')->first();
+
+       return view('pages/contactos',  ['pagina' => $pagina, 'shareComponent' => $shareComponent]);
 
     }
 
@@ -183,7 +182,8 @@ class PageController extends Controller
             'msg' => $request->msg
 
         );
-        Mail::to('andreteixeira.csn@gmail.com')->send(new NewMail($data));
+        $subject = 'Pedido de Contacto';
+        Mail::to('andreteixeira.csn@gmail.com')->send(new NewMail($data,$subject));
         return back()->with('success', 'Email enviado com sucesso! Entraremos em contacto em breve!');
 
     }

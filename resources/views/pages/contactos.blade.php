@@ -1,7 +1,7 @@
 @extends('master.main')
 @section('content')
-@foreach($paginas as $pagina)
-@if($pagina->title == 'Contactos')
+
+@if($pagina != null)
     <div class="row text-center pb-5">
         <div class="row" id="page-image" style="background-image: url('{{ asset('storage/' . $pagina->image) }}');">
             <div class="col text-center mt-5 pt-1">
@@ -17,6 +17,7 @@
                 </p>
             </div>
         </div>
+        @endif
         @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
@@ -84,12 +85,13 @@
                     width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+            @if($pagina != null)
             <div class="col-12 col-lg-4 my-4">
             {!! $pagina->description !!}
             </div>
+            @endif
         </div>
-        @endif
-        @endforeach
+
         <div id="social-links">
             <p>Share the love</p>
             {!! $shareComponent !!}

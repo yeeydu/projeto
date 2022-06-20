@@ -12,17 +12,17 @@
             <li class="nav-item @if(Request::path()== 'admin') active @endif">
                 <a class="nav-link" href="{{url('/admin')}} ">Administrator<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item @if(Request::is('paginas'))? active : @endif">
+            <li class="nav-item @if(Request:: is ('admin/paginas')) active : @endif">
                 <a class="nav-link" href="{{ url('admin/paginas') }}">Paginas</a>
             </li>
-            <li class="nav-item @if(Request::is('Fotografias'))? active : @endif">
+            <li class="nav-item @if(Request::is('fotografias'))? active : @endif">
                 <a class="nav-link" href="{{ url('admin/fotografias') }}">Fotografias</a>
             </li>
             <li class="nav-item @if(Request::is('Videos'))? active : @endif">
                 <a class="nav-link" href="{{ url('admin/videos') }}">Videos</a>
             </li>
             <li class="nav-item @if(Request::is('Preços'))? active : @endif">
-                <a class="nav-link" href="{{ url('admin/precos') }}">Preços</a>
+                <a class="nav-link" href="{{ route('packs.index') }}">Preços</a>
             </li>
             </li>
         </ul>
@@ -30,7 +30,7 @@
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-        </form> 
+        </form>
     </div>
 
     <ul class="navbar-nav ml-auto">

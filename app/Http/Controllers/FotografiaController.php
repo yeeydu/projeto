@@ -17,7 +17,7 @@ class FotografiaController extends Controller
 
     public function  __construct()
     {
-        $this->middleware('auth');  
+        $this->middleware('auth');
     }
 
     public function index()
@@ -32,7 +32,7 @@ class FotografiaController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -56,14 +56,14 @@ class FotografiaController extends Controller
             'order'        => 'required',
             'image'        => 'required|image|mimes:png,jpg,jpeg,svg,gif|max:2048'
         ]);
-        
+
         $fotografia               = new Fotografia();
         $fotografia->title        = $request->title;
         $fotografia->description  = $request->description;
         $fotografia->category_id  = $request->category_id;
         $fotografia->order        = $request->order;
         $fotografia->save();
-        
+
         //If we have an image file, we store it, and move it in the database
         if($request->file('image')){
             $imagePath = $request->file('image');
@@ -72,7 +72,7 @@ class FotografiaController extends Controller
             $fotografia->image = $path;
             $fotografia->save();
         }
-        $fotografia->image        = $request->image;
+        $fotografia->image = $request->image;
 
         return redirect('admin/fotografias')->with('status', 'Item created succesfully!');
     }
@@ -85,7 +85,7 @@ class FotografiaController extends Controller
      */
     public function show(Fotografia $fotografia)
     {
-        
+
         return view('admin.pages.fotografias.show', ['fotografia' => $fotografia]);
     }
 
@@ -98,7 +98,7 @@ class FotografiaController extends Controller
     public function edit(Fotografia $fotografia)
     {
         $category = Category::all();
-    
+
         return view('admin.pages.fotografias.edit', ['fotografia' => $fotografia, 'categorias' => $category]);
     }
 
@@ -120,7 +120,7 @@ class FotografiaController extends Controller
         $fotografia->order        = $request->order;
         $fotografia->save();
 
-       
+
         if($request->hasfile('image')){
             Storage::deleteDirectory('public/images/fotografias/' . $fotografia->id);
             $imagePath = $request->file('image');

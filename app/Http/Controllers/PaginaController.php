@@ -16,7 +16,7 @@ class PaginaController extends Controller
 
     public function  __construct()
     {
-        $this->middleware('auth');  
+        $this->middleware('auth');
     }
 
     public function index()
@@ -35,7 +35,7 @@ class PaginaController extends Controller
     {
         $paginas = Pagina::all();
         return view('admin.pages.paginas.create', ['paginas' => $paginas]);
-    
+
     }
 
     /**
@@ -51,12 +51,12 @@ class PaginaController extends Controller
             'description'  => 'required',
             'image'        => 'required|image|mimes:png,jpg,jpeg,svg,gif|max:2048'
         ]);
-        
+
         $pagina               = new Pagina();
         $pagina->title        = $request->title;
         $pagina->description  = $request->description;
         $pagina->save();
-        
+
         //If we have an image file, we store it, and move it in the database
         if($request->file('image')){
             $imagePath = $request->file('image');
@@ -108,7 +108,7 @@ class PaginaController extends Controller
         $pagina->description  = $request->description;
         $pagina->save();
 
-       
+
         if($request->hasfile('image')){
             Storage::deleteDirectory('public/images/paginas/' . $pagina->id);
             $imagePath = $request->file('image');
@@ -133,7 +133,7 @@ class PaginaController extends Controller
     {
         Storage::deleteDirectory('public/images/paginas/' . $pagina->id);
         $pagina->delete();
- 
+
         return redirect('admin/paginas')->with('status', 'Item deleted successfully');
     }
 }

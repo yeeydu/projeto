@@ -34,10 +34,21 @@ Route::get('/politica-de-privacidade', 'PageController@privacidade')->name('poli
 Route::get('/admin', 'HomeController@index')->name('admin');
 Route::group(['middleware' => 'admin'], function () {
 
+
     Route::resource('admin/paginas', 'PaginaController');
     Route::resource('admin/fotografias', 'FotografiaController');
     Route::resource('admin/videos', 'VideoController');
     Route::resource('admin/orcamentos', 'OrcamentoController');
-    Route::get('admin/', 'SliderController@index');
+
+    Route::post('admin/precos','PackController@store')->name('pack.store');
+    Route::get('admin/precos','PackController@index')->name('packs.index');
+    Route::get('admin/precos/create', 'PackController@create')->name('packs.create');
+    Route::get('admin/precos/{pack}', 'PackController@show')->name('pack.show');
+    Route::get('admin/precos/{pack}/edit', 'PackController@edit')->name('pack.edit');
+    Route::put('admin/precos/{pack}', 'PackController@update')->name('pack.update');
+    Route::delete('admin/precos/{pack}', 'PackController@destroy')->name('pack.destroy');
+
     Route::resource('admin/sliders', 'SliderController');
+    Route::get('admin/', 'SliderController@index');
+
 });

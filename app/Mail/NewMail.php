@@ -12,14 +12,16 @@ class NewMail extends Mailable
     use Queueable, SerializesModels;
 
     public $data;
+    public $subject;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($data,$subject)
     {
         $this-> data = $data;
+        $this-> subject = $subject;
     }
 
     /**
@@ -29,6 +31,6 @@ class NewMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Novo Pedido de Contacto')->view('emails.contact-mail')->with('data', $this->data);
+        return $this->subject($this->subject)->view('emails.contact-mail')->with('data', $this->data);
     }
 }
