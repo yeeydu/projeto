@@ -49,7 +49,7 @@
                 <label for="exampleFormControlSelect1">Position (order)</label>
                     <select class="form-control" id="exampleFormControlSelect1" name="order" value="{{ old('order') }}">
                     <option selected value="{{ old('order') }}">Choose...</option>
-                        <option>1</option>
+                     <option>1</option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
@@ -58,7 +58,7 @@
                         <option>7</option>
                         <option>8</option>
                         <option>9</option>
-                        <option>10</option>
+                        <option>10</option> 
                 </select>
             </div>
         </div>

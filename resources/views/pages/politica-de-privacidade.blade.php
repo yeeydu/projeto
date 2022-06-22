@@ -1,8 +1,7 @@
 @extends('master.main')
 @section('content')
-
-@foreach($paginas as $pagina)
-     @if($pagina->title == 'Política de Privacidade')
+<div class="container">
+@if($pagina != null)
     <div class="row text-center pb-5">
         <div class="row" id="page-image" style="background-image: url('{{ asset('storage/' . $pagina->image) }}'); ">
             <div class="col text-center mt-5 pt-1">
@@ -19,12 +18,14 @@
                 </p>
             </div>
         </div>
-        <div id="social-links">
+        @endif
+    </div>
+</div>
+<section class="container">
+        <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
             <p>Share the love</p>
             {!! $shareComponent !!}
-         </div>
-</div>
-    @endif
-@endforeach
+        </div>
+    </section>
 
 @endsection

@@ -41,7 +41,6 @@ class PackController extends Controller
         ]);
 
         $pack               = new Pack();
-        dd(Pack::count());
 
         $pack->title        = $request->title;
         $pack->summary      = $request->summary;

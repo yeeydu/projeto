@@ -41,7 +41,6 @@
         </ul>
         </div>
     </nav>
-
     <a class="navbar-brand order-lg-0" href="/">
         <img class="" src="/img/logofinal.png" />
     </a>

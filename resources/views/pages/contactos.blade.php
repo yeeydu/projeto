@@ -1,6 +1,6 @@
 @extends('master.main')
 @section('content')
-
+<div class="container-fluid">
 @if($pagina != null)
     <div class="row text-center pb-5">
         <div class="row" id="page-image" style="background-image: url('{{ asset('storage/' . $pagina->image) }}');">
@@ -92,8 +92,11 @@
             @endif
         </div>
 
-        <div id="social-links">
+    </div>
+    <section class="container">
+        <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
             <p>Share the love</p>
             {!! $shareComponent !!}
-         </div>
+        </div>
+    </section>
     @endsection

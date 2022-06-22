@@ -26,14 +26,17 @@
     <span class="sr-only">Next</span>
   </button>
 </div>
-<div class="w-100 p-3" style="background-color: #eee;">Content
+<div class="container">
+<div class="w-100 p-3">Content
   <div class="img-fluid w-50">
         <img src="https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="img-fluid" alt="...">
   </div>
-
-  <div id="social-links">
+  </div>
+  <section class="container">
+        <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
             <p>Share the love</p>
             {!! $shareComponent !!}
-         </div>
+        </div>
+    </section>
 </div>
 @endsection
