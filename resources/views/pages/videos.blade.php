@@ -1,8 +1,7 @@
 @extends('master.main')
 @section('content')
-
-@foreach($paginas as $pagina)
-     @if($pagina->title == 'Videos')
+<div class="container-fluid">
+@if($pagina != null)
     <div class="row text-center pb-5">
         <div class="row" id="page-image" style="background-image: url('{{ asset('storage/' . $pagina->image) }}');">
             <div class="col text-center mt-5 pt-1">
@@ -19,7 +18,7 @@
             </div>
      </div>
         @endif
-@endforeach
+
   <div class="row pt-3 col-lg-12 col-md-12 col-sm-12">
       @foreach($videos as $video)
     <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">   
@@ -35,14 +34,13 @@
         </div>
       @endforeach
      </div>
-     <div id="social-links">
+    </div>
+    <section class="container">
+        <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
             <p>Share the love</p>
             {!! $shareComponent !!}
-         </div>
+        </div>
+    </section>
 </div>
-
-
-
-
 
 @endsection

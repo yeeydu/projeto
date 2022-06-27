@@ -14,12 +14,16 @@
     min-height: 550px;
 }
 
-/* top image */
+/* top image  para funcionar full width a div tem de ter "container-fuid" */
 #page-image{
-    display: block;
-    background-size: cover;
     height: 340px;
     width: 100%;
+    display:block;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    color: #ffffff;   /* text  color */
 }
 
 .contact{
@@ -46,7 +50,7 @@
 
 /* Social links */
 div#social-links {
-    margin: 0 auto;
+    margin-left: 0px;
 }
 div#social-links ul {
     padding-inline-start: 0px !important;
@@ -56,11 +60,22 @@ div#social-links ul li {
 }
 div#social-links ul li a {
     padding: 4px;
-    border: 1px solid #ccc;
     margin: 1px;
     font-size: 18px;
-    color: rgb(95, 4, 140);
+    color: #583863;
     background-color: rgb(237, 237, 237);
+}
+
+div#social-links ul li a:hover {
+    padding: 4px;
+    margin: 1px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #583863;
+}
+div#social-links p{  /*Text share*/
+    margin-left: 40px;
+    margin-bottom: 0px;
 }
 
 /*Teste para os cards*/
@@ -72,6 +87,10 @@ div#social-links ul li a {
     border-color: #b38692;
 }
 
+/*Footer social*/
+.footer__social-link{
+    padding: 8px;
+}
 
 
 

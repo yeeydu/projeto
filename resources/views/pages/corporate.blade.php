@@ -1,8 +1,12 @@
 @extends('master.main')
 @section('content')
+<<<<<<< HEAD
     <div class="container">
 
 
+=======
+<div class="container-fluid">
+>>>>>>> 9a6558fb3a98f18bffd8da3fa602a986d36fa732
     @if($pagina != null)
     <div class="row text-center pb-5">
         <div class="row" id="page-image" style="background-image: url('{{ asset('storage/' . $pagina->image) }}');">
@@ -35,14 +39,20 @@
         </div>
       @endforeach
      </div>
-     <div id="social-links">
+    </div>
+    <section class="container">
+        <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
             <p>Share the love</p>
             {!! $shareComponent !!}
-         </div>
+        </div>
+    </section>
 </div>
 
+<<<<<<< HEAD
 
 
     </div>
 
+=======
+>>>>>>> 9a6558fb3a98f18bffd8da3fa602a986d36fa732
 @endsection

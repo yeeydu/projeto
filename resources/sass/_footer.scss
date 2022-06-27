@@ -9,6 +9,7 @@
 .footer__social-link {
     color: var(--secondary);
     font-size: 18px;
+    padding: 10px;
 
     &:hover {
         color: var(--dark);
@@ -16,6 +17,6 @@
     }
 
     i.fab {
-        gap: 36px;
+        gap: 6px;
     }
 }

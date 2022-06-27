@@ -50,6 +50,10 @@ class PackController extends Controller
         }
 
         $pack               = new Pack();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9a6558fb3a98f18bffd8da3fa602a986d36fa732
         $pack->title        = $request->title;
         $pack->summary      = $request->summary;
         $pack->description  = $request->description;
