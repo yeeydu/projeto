@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Pagina;
 use Illuminate\Http\Request;
 
-class PaginaController extends Controller
+class
+PaginaController extends Controller
 {
     /**
      * Display a listing of the resource.

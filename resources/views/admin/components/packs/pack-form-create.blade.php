@@ -17,7 +17,7 @@
         <div class="form-group">
             <label for="summary">Resumo</label>
             <textarea rows="14" type="text"  name="summary" id="summary" autocomplete="summary" placeholder="Escrever o resumo do pack"
-                      class="form-control @error('summary') is-invalid @enderror"
+                      class="editor form-control @error('summary') is-invalid @enderror"
                       value="{{ old('summary') }}" aria-describedby="nameHelp">{{ old('summary') }}</textarea>
             @error('summary')
                 <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
         <div class="form-group">
             <label for="description">Descrição</label>
             <textarea rows="14" type="text"  name="description" id="description" autocomplete="description" placeholder="Escrever a descrição do pack"
-                      class="form-control @error('description') is-invalid @enderror"
+                      class="editor form-control @error('description') is-invalid @enderror"
                       value="{{ old('description') }}"  aria-describedby="nameHelp">{{ old('description') }}</textarea>
             @error('description')
             <span class="invalid-feedback" role="alert">

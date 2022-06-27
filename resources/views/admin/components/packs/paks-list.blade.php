@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="col-lg-10 col-lg-offset-2 mx-auto">
     @if (session('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('status') }}
@@ -15,11 +15,11 @@
     </div>
 
     <div class="row ">
-        <div class="col-12">
+        <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Ordem</th>
                     <th scope="col">Nome do Pack</th>
                     <th scope="col">Resumo</th>
                     <th scope="col">Descrição</th>
@@ -31,10 +31,10 @@
                 <tbody>
                 @foreach($packs as $pack)
                     <tr>
-                        <th scope="row">{{$pack->id}}</th>
+                        <th scope="row">{{$pack->order}}</th>
                         <td class="w-25">{{$pack->title}}</td>
-                        <td class="w-25">{!! Str::limit($pack->summary, 50) !!}</td>
-                        <td class="w-25">{!! Str::limit($pack->descriprion, 50) !!}</td>
+                        <td class="w-25">{!!$pack->summary !!}</td>
+                        <td class="w-25">{!!substr($pack->description, 0, 20) !!}...</td>
                         <td>
                             @if ($pack->image)
                                 <img class="img-thumbnail" src="{{ asset('storage/' . $pack->image) }}" alt="image">
@@ -47,11 +47,11 @@
                             <div class="pr-1 d-lg-inline-flex ">
                                 <a href="{{route('pack.show',['pack' => $pack->id])}}" type="button" class="btn btn-outline-success">Show</a>
                                 @auth
-                                    <a href="{{url('admin/fotografias/' . $pack->id . '/edit')}}" type="button" class="btn btn-outline-primary">Edit</a>
-                                    <form action="{{url('admin/fotografias/' . $pack->id)}}" method="POST">
+                                    <a href="{{route('pack.edit',['pack' => $pack->id])}}" type="button" class="btn btn-outline-primary">Edit</a>
+                                    <form action="{{route('pack.destroy',['pack' => $pack->id])}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                        <button type="submit" class="btn btn-outline-danger show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
                                     </form>
                                 @endauth
                             </div>

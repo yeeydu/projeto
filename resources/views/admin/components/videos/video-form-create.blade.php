@@ -16,7 +16,7 @@
         <div class="form-group">
             <label for="exampleInputPassword1">Description</label>
             <textarea rows="14" type="text"  name="description" id="description" autocomplete="description" placeholder="Type your description"
-            class="form-control @error('address')
+            class="editor form-control @error('address')
                     is-invalid
                 @enderror"
             value="{{ old('description') }}"  aria-describedby="nameHelp">{{ old('description') }}</textarea>
@@ -24,8 +24,8 @@
             <strong>{{ $message }}</strong>
             @enderror
         </div>
-        <div class="row"> 
-        <div class="col"> 
+        <div class="row">
+        <div class="col">
             <div class="form-group">
                 <div class="input-group-prepend">
                     <label  for="PlayerSelect">Category</label>
@@ -44,7 +44,7 @@
             @enderror
             </div>
             </div>
-            <div class="col"> 
+            <div class="col">
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Position (order)</label>
                     <select class="form-control" id="exampleFormControlSelect1" name="order" value="{{ old('order') }}">
@@ -75,7 +75,7 @@
     <!---    <div class="form-group"> ----image----
             <label for="exampleInputPassword1">Image</label>
             ---- filenames[]-----
-            <input type="file"  name="image" id="image" 
+            <input type="file"  name="image" id="image"
             class="form-control @error('name')
                     is-invalid
                 @enderror"

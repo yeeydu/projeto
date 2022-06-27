@@ -1,8 +1,7 @@
 @extends('admin.master.main')
 @section('content')
 
-    @component('admin.components.packs.paks-list', ['packs' => $packs])
+    @component('admin.components.packs.pack-form-show', ['pack' => $pack]);
 
     @endcomponent
 @endsection
-

@@ -21,18 +21,18 @@
 		<div class="col-lg-4 col-md-12 d-flex align-items-center">
 			<p class="mx-auto text-center mb-0">&copy; {{now()->format('Y')}} Design by Cesae Team Y.</p>
 		</div>
+
 	</div>
 </div>
-<!-- Main JS -->
-<script src="//localhost:35729/livereload.js"></script>
-
 
 <script>
 	tinymce.init({
-		selector: 'textarea',
+		selector: 'textarea.editor',
+        language: 'pt_PT',
+        branding: false,
 		hidden_input: false,
-		plugins: '  fontselect autolink',
-		toolbar: ' undo  redo bold italic underline  h1 h2 h3 align indent bullist numlist fontselect fontsizeselect forecolor backcolor blockquote formatpainter casechange',
+		plugins: 'fontselect autolink lists advlist link',
+		toolbar: ' undo  redo bold italic underline  h1 h2 h3 align indent bullist numlist fontselect fontsizeselect forecolor backcolor blockquote formatpainter casechange link',
 		toolbar_mode: 'floating',
 		skin: 'bootstrap',
 		menubar: true,

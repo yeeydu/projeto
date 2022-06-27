@@ -24,24 +24,41 @@
     <!---------->
     <x-embed-styles />
     <script src="https://cdn.tiny.cloud/1/7hfse5cdit2wup27yravzd3aisl1pjy1ol408z4dwx5ix5ql/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 
 </head>
 <body>
-<!---
-    @component('admin.master.header')  --include top menu --
-    @endcomponent    ---->
+
     <main>
 
-    @component('admin.master.side')  <!--include side menu panel-->
-    @endcomponent
-        @yield('content')       <!--yield section(content)-->
+
+                @component('admin.master.side')  <!--include side menu panel-->
+                @endcomponent
+
+
+                                @yield('content')       <!--yield section(content)-->
+
+                            </div>
+                        </div>
+                    <!-- /#page-content-wrapper -->
+
+                    </div>
+                    <!-- /#wrapper -->
+
+
+
+
+
+
     </main>
     @component('admin.master.footer')
     @endcomponent
 
     <!-- Scripts ( defer execute at the end.)-->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script src="{{ asset('js/our.js') }}" defer></script>
     @yield('script')   <!--section (script) for a personalized script page-->
 
 

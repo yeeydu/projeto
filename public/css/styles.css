@@ -48,6 +48,9 @@
 div#social-links {
     margin: 0 auto;
 }
+div#social-links ul {
+    padding-inline-start: 0px !important;
+}
 div#social-links ul li {
     display: inline-block;
 }
@@ -68,6 +71,9 @@ div#social-links ul li a {
     border-left-style: solid;
     border-color: #b38692;
 }
+
+
+
 
 
 

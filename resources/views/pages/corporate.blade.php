@@ -1,5 +1,8 @@
 @extends('master.main')
 @section('content')
+    <div class="container">
+
+
     @if($pagina != null)
     <div class="row text-center pb-5">
         <div class="row" id="page-image" style="background-image: url('{{ asset('storage/' . $pagina->image) }}');">
@@ -40,6 +43,6 @@
 
 
 
-
+    </div>
 
 @endsection

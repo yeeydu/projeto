@@ -1,5 +1,7 @@
 @extends('master.main')
 @section('content')
+<div class="container">
+
 
 @foreach($paginas as $pagina)
      @if($pagina->title == 'Fotografias')
@@ -7,7 +9,7 @@
         <div class="row" id="page-image" style="background-image: url('{{ asset('storage/' . $pagina->image) }}');">
             <div class="col text-center mt-5 pt-1">
                <h1 class="mt-5 pt-4" >{{$pagina->title}}</h1>
-            </div> 
+            </div>
         </div>
     </div>
     <div class="container mt-3 mb-5">
@@ -22,12 +24,12 @@
 @endforeach
     <div class="row pt-3 col-lg-12 col-md-12 col-sm-12">
         @foreach($fotografias as $foto)
-        <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">  
+        <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="pb-2"> <!----->
             @if ($foto->image)
             <img class="w-100" src="{{ asset('storage/' . $foto->image) }}" alt="image"></td>
             @else
-            <p>No Image</p>  
+            <p>No Image</p>
             @endif
         </div> <!----->
          <div class="text-center mb-5">
@@ -37,13 +39,13 @@
         </div>
         @endforeach
     </div>
-    <br>
-    <div id="social-links">
+        <br>
+        <div id="social-links">
             <p>Share the love</p>
             {!! $shareComponent !!}
          </div>
+    </div>
+
+
 </div>
-
-
-
 @endsection

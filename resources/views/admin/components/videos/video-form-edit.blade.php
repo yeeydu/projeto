@@ -17,7 +17,7 @@
         <div class="form-group">
             <label for="exampleInputPassword1">Description</label>
             <textarea rows="14" type="text"  name="description" id="description" autocomplete="description" placeholder="Type your description"
-            class="form-control @error('description')
+            class="editor form-control @error('description')
                     is-invalid
                 @enderror"
             value="{{ $video->description }}"  aria-describedby="nameHelp">{{ $video->description }}</textarea>
@@ -25,20 +25,20 @@
             <strong>{{ $message }}</strong>
             @enderror
         </div>
-        <div class="row"> 
-        <div class="col"> 
+        <div class="row">
+        <div class="col">
             <div class="form-group">
                 <div class="input-group-prepend">
                     <label  for="PlayerSelect">Category</label>
                 </div>
                 <div class="input-group mb-3">
-                <select class="custom-select" id="CategoriaSelect"  name="category_id" 
+                <select class="custom-select" id="CategoriaSelect"  name="category_id"
                 class="form-control @error('category_id')
                     is-invalid
-                @enderror" 
+                @enderror"
                 value="category->title">
                 <option value="{{$video-> category->id}}"selected> {{$video-> category->title}} </option>
-                 @foreach($categorias as $categoria) 
+                 @foreach($categorias as $categoria)
                         <option  value="{{$categoria -> id}}">{{$categoria -> title}}</option>
                     @endforeach
                 </select>
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-            <div class="col"> 
+            <div class="col">
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Position (order)</label>
                     <select class="form-control" id="order" name="order" value="{{ old('order') }}" value="video->order">
@@ -63,7 +63,7 @@
                         <option>8</option>
                         <option>9</option>
                         <option>10</option>
-                </select>   
+                </select>
             </div>
         </div>
         </div>
@@ -83,7 +83,7 @@
              <div class="form-group"> -----image----
                 <label for="exampleInputPassword1">Image</label>
                 ---- filenames[]-----
-                <input type="file"  name="image" id="image" 
+                <input type="file"  name="image" id="image"
                 class="form-control @error('name')
                         is-invalid
                     @enderror"
@@ -96,7 +96,7 @@
              @if ($video->image)
                 <img class=" w-25  img-thumbnail" src="{{ asset('storage/' . $video->image) }}" alt="image"></td>
              @else
-                <p>No Image</p>  
+                <p>No Image</p>
             @endif
         </div>  --->
             <div>
