@@ -1,12 +1,6 @@
 @extends('master.main')
 @section('content')
-<<<<<<< HEAD
-    <div class="container">
-
-
-=======
 <div class="container-fluid">
->>>>>>> 9a6558fb3a98f18bffd8da3fa602a986d36fa732
     @if($pagina != null)
     <div class="row text-center pb-5">
         <div class="row" id="page-image" style="background-image: url('{{ asset('storage/' . $pagina->image) }}');">
@@ -48,11 +42,4 @@
     </section>
 </div>
 
-<<<<<<< HEAD
-
-
-    </div>
-
-=======
->>>>>>> 9a6558fb3a98f18bffd8da3fa602a986d36fa732
 @endsection
