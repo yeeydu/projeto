@@ -63,14 +63,11 @@
 div#social-links {
     margin-left: 0px;
 }
-<<<<<<< HEAD
 div#social-links ul {
     padding-inline-start: 0px !important;
 }
-=======
  
 
->>>>>>> af263d6 (updates)
 div#social-links ul li {
     display: inline-block;
 }
@@ -90,7 +87,7 @@ div#social-links ul li a:hover {
     background-color: #583863;
 }
 div#social-links p{  /*Text share*/
-    margin-left: 40px;
+    margin-left: 0px;
     margin-bottom: 0px;
 }
 
@@ -123,8 +120,6 @@ div#social-links p{  /*Text share*/
 }
 
 
-
-
 .js-cookie-consent-agree.cookie-consent__agree{
     background-color: #443549;
     border-radius: 8px;
@@ -135,7 +130,7 @@ div#social-links p{  /*Text share*/
 
 
 .shape {
-    background-image: linear-gradient(110deg,  rgba(255, 255, 255, 0) 50%, #ffe7eb 50%);
+    background-image: linear-gradient(110deg,  rgba(255, 255, 255, 0) 50%, #fff2f4 50%);
  
   }
  

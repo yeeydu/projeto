@@ -1,14 +1,14 @@
 @extends('master.main')
 @section('content')
-<div class="container-fluid">
-@if($pagina != null)
-    <div class="row text-center pb-5">
-        <div class="row" id="page-image" style="background-image: url('{{ asset('storage/' . $pagina->image) }}');">
-            <div class="col text-center mt-5 pt-1">
-               <h1 class="mt-5 pt-4" >{{$pagina->title}}</h1>
-            </div>
+<section class="container-fluid">
+    @if($pagina != null)
+   
+        <div class="row text-center pb-5  " >
+            <div class="col col-md-12 col-lg-12 col-sm-12 col-xs-12 pt-4" id="page-image" style="background-image: url('{{ asset('storage/' . $pagina->image) }}'); ">
+               <h1 class="mt-5 pt-5 titleAnimate" >{{$pagina->title}}</h1>
+            </div> 
         </div>
-</section>  
+</section>    
 <div class="container">
         <div class="row justify-content-center  mt-3 mb-2 siteText">
             <div class="col col-md-12 col-lg-12 col-sm-12 col-xs-12">

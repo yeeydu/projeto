@@ -37,8 +37,7 @@
                 </li>
             </ul>
         </div>
-        <ul class="navbar-nav ml-auto">
-        </ul>
+
         </div>
     </nav>
     <a class="navbar-brand order-lg-0" href="/">

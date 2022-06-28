@@ -31,25 +31,16 @@
 <body>
 
     <main>
+    @component('admin.master.side')  <!--include side menu panel-->
+    @endcomponent
 
+        @yield('content')       <!--yield section(content)-->
 
-                @component('admin.master.side')  <!--include side menu panel-->
-                @endcomponent
-
-
-                                @yield('content')       <!--yield section(content)-->
-
-                            </div>
-                        </div>
-                    <!-- /#page-content-wrapper -->
-
-                    </div>
-                    <!-- /#wrapper -->
-
-
-
-
-
+        </div>
+    </div>
+<!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
 
     </main>
     @component('admin.master.footer')
@@ -60,8 +51,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script src="{{ asset('js/our.js') }}" defer></script>
     @yield('script')   <!--section (script) for a personalized script page-->
-
-
 
 </body>
 </html>
