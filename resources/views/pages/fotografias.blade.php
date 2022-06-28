@@ -25,7 +25,7 @@
         <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="pb-2"> <!----->
             @if ($foto->image)
-            <img class="w-100" style="height: 310px;"  src="{{ asset('storage/' . $foto->image) }}" alt="image"></td>
+            <img class="w-100" style="max-height: 310px; min-height: 160px;"  src="{{ asset('storage/' . $foto->image) }}" alt="image"></td>
             @else
             <p>No Image</p>
             @endif
