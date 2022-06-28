@@ -1,8 +1,6 @@
 @extends('master.main')
 @section('content')
 
-@foreach($paginas as $pagina)
-     @if($pagina->title == 'Sobre')
     <div class="container-fluid">
 
             <div class="row text-center pb-5">
@@ -28,7 +26,6 @@
             </div>
 
     </div>
-    @endif
-@endforeach
+
 
 @endsection
