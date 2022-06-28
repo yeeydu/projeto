@@ -1,0 +1,16 @@
+.js-cookie-consent{
+    position: fixed;
+    text-align: center;
+    top: 0px;
+    padding: 10px;
+    width: 100%;
+    z-index: 9999;
+    background-color:beige;
+    border-color: #443549 1px;  
+}
+
+.js-cookie-consent-agree.cookie-consent__agree{
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    border-color: #443549 1px;
+}

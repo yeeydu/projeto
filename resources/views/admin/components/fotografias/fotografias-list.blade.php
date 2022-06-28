@@ -19,7 +19,7 @@
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
+                     <!--<th scope="col">#</th> -->
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
                         <th scope="col">Category</th>
@@ -31,9 +31,9 @@
                     <tbody>
                     @foreach($fotografias as $foto)
                         <tr>
-                            <th scope="row">{{$foto->id}}</th>
+                         <!--<th scope="row">{{$foto->id}}</th>-->
                             <td class="w-25">{{$foto->title}}</td>
-                            <td class="w-25">{!! Str::limit($foto->description, 50) !!}</td>
+                            <td class="w-25">{!! substr($foto->description, 0, 50) !!}</td>
                             <td class="">{{$foto->category->title}}</td>
                             <td class="">{{$foto->order}}</td>
                             

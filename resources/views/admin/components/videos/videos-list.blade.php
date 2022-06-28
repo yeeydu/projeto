@@ -11,7 +11,7 @@
         <h1>Videos</h1>
         <div class="row m-2">
             <a href="{{ url('admin/videos/create') }}" class="btn btn-primary mr-3">Add Video</a>
-            <p >Adicione e altere a lista de trabalhos de filmagem "titulo, descrição, categoria, ordem e imagem"</p>
+            <p >Adicione e altere a lista de trabalhos de filmagem Particular e Corporate "titulo, descrição, categoria, ordem e link"</p>
         </div>
         
         <div class="row ">
@@ -19,7 +19,7 @@
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
+                       <!--<th scope="col">#</th>-->
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
                         <th scope="col">Category</th>
@@ -31,9 +31,9 @@
                     <tbody>
                     @foreach($videos as $video)
                         <tr>
-                            <th scope="row">{{$video->id}}</th>
+                           <!--<th scope="row">{{$video->id}}</th>-->
                             <td class="w-25">{{$video->title}}</td>
-                            <td class="">{!! Str::limit($video->description, 50) !!}</td>
+                            <td class="w-25">{!! substr($video->description, 0, 50) !!}</td>
                             <td class="">{{$video->category->title}}</td>
                             <td class="">{{$video->order}}</td>
                             <td class=""><x-embed url="{{ $video->url }}" /></td>

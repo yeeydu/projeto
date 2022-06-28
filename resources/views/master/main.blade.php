@@ -41,11 +41,13 @@
 
     @component('master.header')
     @endcomponent
-
+    
     <main>
-        @yield('content')
+        <div class="shape"> <!--- background shape w/ css style--->
+             @yield('content')
+        </div>
     </main>
-
+        
     @component('master.footer')
     @endcomponent
 

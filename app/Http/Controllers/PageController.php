@@ -27,7 +27,7 @@ class PageController extends Controller
 
     public function slider(){
 
-      $shareComponent = \Share::page('http://diogopinto.pt', 'Fotografia & Video')
+      $shareComponent = \Share::page('https://diogopinto.pt', 'Fotografia & Video')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -39,7 +39,7 @@ class PageController extends Controller
 
     public function sobre()
     {
-      $shareComponent = \Share::page('http://diogopinto.pt', 'Fotografia & Video')
+      $shareComponent = \Share::Page('https://diogopinto.pt', 'Sobre')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -48,15 +48,12 @@ class PageController extends Controller
       //$paginas = Pagina::all();
       $pagina = Pagina::where('title','Sobre')->first();
       return view('pages/sobre', ['pagina' => $pagina,  'shareComponent' => $shareComponent]); // pagina sobre
-
-      //$pagina = Pagina::firstWhere("title", "sobre")->first();
-      //return view('pages.sobre', ['pagina' => $pagina]); // pagina sobre
     }
 
     public function fotografias() // pagina fotografias
     {
 
-      $shareComponent = \Share::page('http://diogopinto.pt', 'Fotografia & Video')
+      $shareComponent = \Share::page('https://diogopinto.pt', 'Fotografia')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -70,7 +67,7 @@ class PageController extends Controller
     public function videos()  // pagina videos
     {
       // $videos = Video::orderBy('category_id', 'asc')->get();
-      $shareComponent = \Share::page('http://diogopinto.pt', 'Fotografia & Video')
+      $shareComponent = \Share::page('https://diogopinto.pt', 'Video')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -88,7 +85,7 @@ class PageController extends Controller
     public function corporate()   // pagina corporate
     {
 
-      $shareComponent = \Share::page('http://diogopinto.pt', 'Fotografia & Video')
+      $shareComponent = \Share::page('https://diogopinto.pt', 'Fotografia & Video Corporate')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -105,7 +102,7 @@ class PageController extends Controller
 
     public function precos()   // pagina preços
     {
-      $shareComponent = \Share::page('http://diogopinto.pt', 'Fotografia & Video')
+      $shareComponent = \Share::page('https://diogopinto.pt', 'Fotografia & Video Preços')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -119,7 +116,7 @@ class PageController extends Controller
 
     public function cookies()   // pagina cookies
     {
-      $shareComponent = \Share::page('http://diogopinto.pt', 'Fotografia & Video')
+      $shareComponent = \Share::page('https://diogopinto.pt', 'Fotografia & Video')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -132,7 +129,7 @@ class PageController extends Controller
 
     public function privacidade()   // pagina preços
     {
-      $shareComponent = \Share::page('http://diogopinto.pt', 'Fotografia & Video')
+      $shareComponent = \Share::page('https://diogopinto.pt', 'Fotografia & Video')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -145,7 +142,7 @@ class PageController extends Controller
 
    public function contactos()   // pagina contactos
     {
-      $shareComponent = \Share::page('http://diogopinto.pt', 'Fotografia & Video')
+      $shareComponent = \Share::page('https://diogopinto.pt', 'Contactos')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')

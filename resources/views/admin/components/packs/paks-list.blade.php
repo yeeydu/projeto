@@ -33,8 +33,8 @@
                     <tr>
                         <th scope="row">{{$pack->order}}</th>
                         <td class="w-25">{{$pack->title}}</td>
-                        <td class="w-25">{!!$pack->summary !!}</td>
-                        <td class="w-25">{!!substr($pack->description, 0, 20) !!}...</td>
+                        <td class="w-25">{!! substr($pack->summary, 0, 50) !!}</td>
+                        <td class="w-25">{!! substr($pack->descriprion, 0, 50) !!}</td>
                         <td>
                             @if ($pack->image)
                                 <img class="img-thumbnail" src="{{ asset('storage/' . $pack->image) }}" alt="image">

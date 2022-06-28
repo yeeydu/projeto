@@ -60,7 +60,7 @@ class SliderController extends Controller
         if($request->file('image')){
             $imagePath = $request->file('image');
             $imageName = $slider->id . '_' . $slider->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
-            $path = $request->file('image')->storeAs('images/fotografias/' . $slider->id, $imageName, 'public');
+            $path = $request->file('image')->storeAs('images/slider/' . $slider->id, $imageName, 'public');
             $slider->image = $path;
             $slider->save();
         }
@@ -112,7 +112,7 @@ class SliderController extends Controller
             Storage::deleteDirectory('public/images/sliders/' . $slider->id);
             $imagePath = $request->file('image');
             $imageName = $slider->id . '_' . $slider->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
-            $path = $request->file('image')->storeAs('images/fotografias/' . $slider->id, $imageName, 'public');
+            $path = $request->file('image')->storeAs('images/slider/' . $slider->id, $imageName, 'public');
             $slider->image = $path;
             $slider->save();
         }

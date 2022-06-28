@@ -20,7 +20,7 @@
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
+                      <!-- <th scope="col">#</th>-->
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
                         <th scope="col">Image</th>
@@ -30,9 +30,9 @@
                     <tbody>
                     @foreach($paginas as $pagina)
                         <tr>
-                            <th scope="row">{{$pagina->id}}</th>
+                          <!--<th scope="row">{{$pagina->id}}</th>-->
                             <td class="w-25">{{$pagina->title}}</td>
-                            <td class="w-25">{!! Str::limit($pagina->description, 50) !!}</td>                            
+                            <td class="w-25">{!! substr($pagina->description,0, 60) !!}</td>                            
                             <td>
                             @if ($pagina->image)
                               <img class="img-thumbnail w-25" src="{{ asset('storage/' . $pagina->image) }}" alt="image">
