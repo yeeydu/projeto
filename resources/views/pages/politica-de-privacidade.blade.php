@@ -5,7 +5,7 @@
     <div class="row text-center pb-5">
         <div class="row" id="page-image" style="background-image: url('{{ asset('storage/' . $pagina->image) }}'); ">
             <div class="col text-center mt-5 pt-1">
-               <h1 class="mt-5 pt-4" >{{$pagina->title}}</h1>
+               <h1 class="mt-5 pt-4 titleAnimate" >{{$pagina->title}}</h1>
             </div> 
         </div>
     </div>
@@ -20,12 +20,12 @@
         </div>
         @endif
     </div>
-</div>
-<section class="container">
+    <div class="row">
         <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
             <p>Share the love</p>
             {!! $shareComponent !!}
         </div>
-    </section>
+    </div>
+</div>
 
 @endsection

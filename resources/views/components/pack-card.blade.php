@@ -1,0 +1,9 @@
+<div class="card pack-card">
+    <div class="image pack-card__image">
+        <img src={{ $image }} />
+    </div>
+    <div class="pack-card__details">
+        <h2 class="pack-card__title">{{ $title }}</h2>
+        <a href={{ $url }} class="btn btn-sm pack-card__button">Saber mais</a>
+    </div>
+</div>

@@ -22,8 +22,7 @@
 	</div>
  <footer>
 --->
-<!-- Remove the container if you want to extend the Footer to full width. -->
-
+<!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#443549" fill-opacity="1" d="M0,96L720,320L1440,160L1440,320L720,320L0,320Z"></path></svg> -->
   <!-- Footer -->
   <footer
           class="text-center text-lg-start text-dark"
@@ -139,12 +138,16 @@
 		 <p class="text-dark mb-0" > &copy; {{ now()->format('Y') }} Design by Cesae Team Y.</p>
     </div>
     <!-- Copyright -->
-  </footer>
-  <!-- Footer -->
- 
-<!-- End of .container -->
 
  
+  </footer>
+  <!-- Footer -->
+
+<!-- End of .container -->
+
+  <!-- Cookie Consent -->
+@include('cookieConsent::index')
+
  <!-- Main JS -->
  <script src="js/app.min.js "></script>
  <script src="//localhost:35729/livereload.js"></script>

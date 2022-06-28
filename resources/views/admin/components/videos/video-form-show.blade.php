@@ -63,7 +63,7 @@
                 <strong>{{ $message }}</strong>
                 @enderror
         </div>
-        <div class="pb-3">
+        <div class="pb-3 w-50">
             <x-embed url="{{ $video->url }}" />
         </div>
         <!---

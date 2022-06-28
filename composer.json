@@ -16,7 +16,8 @@
         "jorenvanhocht/laravel-share": "^4.2",
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^2.4"
+        "laravel/ui": "^2.4",
+        "spatie/laravel-cookie-consent": "^2.12"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

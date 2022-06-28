@@ -30,7 +30,7 @@
                         <tr>
 
                             <td class="w-25">{{$slide->title}}</td>
-                            <td class="w-50">{!! Str::limit($slide->description, 15) !!}</td>
+                            <td class="w-50">{!! substr($slide->description, 0, 50) !!}</td>   
                             <td>
                             @if ($slide->image)
                                 <img class="" style="width: 50px;" src="{{ asset('storage/' . $slide->image) }}" alt="image">
