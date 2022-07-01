@@ -120,7 +120,9 @@
                 class="mb-4 mt-0 d-inline-block mx-auto"
                 style="width: 60px; background-color: #443549; height: 2px"
                 />
+                @if ($pagina != null)
                 {!! $pagina->description !!}
+                @endif
           <!--  <p><i class="fas fa-envelope mr-3"></i> geral@diogopinto.pt</p>
             <p><i class="fas fa-phone mr-3"></i> +351 916 884 127</p> -->
              

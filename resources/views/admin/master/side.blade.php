@@ -36,7 +36,7 @@
                                 @csrf
                             </form>
                         </li>
-                    </ul>
+                    </ul>:
                 </li>
 
             </ul>
