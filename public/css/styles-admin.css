@@ -24,7 +24,8 @@
 main {
     position: relative;
     overflow-x: hidden;
-    background-color: #CFD8DC;
+    background-color: #f4f7fa;
+
 }
 main,
 html { height: 100%;}
@@ -201,7 +202,9 @@ html { height: 100%;}
     display: inline-block;
     padding-right: 5px;
 }
-
+.home-icon::before{
+    content: "\f015" !important;
+}
 a[href*="#settings"]::before {
     content: "\f013" !important;
 }
@@ -216,6 +219,9 @@ a[href*="#settings"]::before {
 }
 .pages-icon::before{
     content: "\f15c" !important;
+}
+.price-icon::before{
+    content: "\f555" !important;
 }
 
 /*-------------------------------*/
@@ -341,8 +347,37 @@ a[href*="#settings"]::before {
 /*-------------------------------*/
 /*            Overlay            */
 /*-------------------------------*/
+
+@media screen and (max-width: 1445px) {
+
+    .media-content-true {
+        padding-top: 50px;
+    }
+
+
+}
+
+@media screen and (max-width: 768px){
+.hide-with-media{
+    display: none;
+}
+}
+.table td{
+    vertical-align: middle;
+}
 /* end sidebar css*/
 
-
+/* Customize Show fields */
+.show-style{
+    background-color: #e9ecef;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+/*----*/
+/* apply pointer on sort class */
+.sort{
+    cursor: pointer;
+}
 
 

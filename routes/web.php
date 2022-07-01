@@ -25,6 +25,7 @@ Route::get('/fotografias', 'PageController@fotografias')->name('fotografias');
 Route::get('/videos', 'PageController@videos')->name('videos');
 Route::get('/corporate', 'PageController@corporate')->name('corporate');
 Route::get('/precos', 'PageController@precos')->name('precos');
+Route::get('/precos/{pack}', 'PageController@packShow')->name('user-pack-show');
 Route::get('/contactos', 'PageController@contactos')->name('contactos');
 Route::post('/contactos','PageController@contactSubmit')->name('contact.submit');
 Route::get('/politica-de-cookies', 'PageController@cookies')->name('politica-de-cookies');
@@ -38,7 +39,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/paginas', 'PaginaController');
     Route::resource('admin/fotografias', 'FotografiaController');
     Route::resource('admin/videos', 'VideoController');
-    Route::resource('admin/orcamentos', 'OrcamentoController');
+
 
     Route::post('admin/precos','PackController@store')->name('pack.store');
     Route::get('admin/precos','PackController@index')->name('packs.index');
@@ -47,6 +48,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/precos/{pack}/edit', 'PackController@edit')->name('pack.edit');
     Route::put('admin/precos/{pack}', 'PackController@update')->name('pack.update');
     Route::delete('admin/precos/{pack}', 'PackController@destroy')->name('pack.destroy');
+    Route::put('admin/precos/update/{pack}', 'PackController@updateState')->name('pack.update-state');
+
+
+    Route::get('admin/extras','ExtraController@index')->name('extras.index');
+
+    Route::get('admin/custom-price','CustomPriceController@index')->name('custom-price.index');
 
     Route::resource('admin/sliders', 'SliderController');
     Route::get('admin/', 'SliderController@index');

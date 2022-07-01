@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrcamentosTable extends Migration
+class CreateCustomPricesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateOrcamentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('orcamentos', function (Blueprint $table) {
+        Schema::create('custom_prices', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateOrcamentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orcamentos');
+        Schema::dropIfExists('custom_prices');
     }
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class OrcamentoSeeder extends Seeder
+class ExtraSeeder extends Seeder
 {
     /**
      * Run the database seeds.

@@ -31,44 +31,52 @@ class PackController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request, [
-            'title'        => 'required',
-            'summary'      => 'required',
-            'description'  => 'required',
-            'order'        => 'required',
-            'price'        => 'required',
-            'image'        => 'required|image|mimes:png,jpg,jpeg,svg,gif|max:3000'
-        ]);
-        // verify if order exist and update
-        $orderExist = Pack::where('order',$request->order)->first();
+            $this->validate($request, [
+                'title'        => 'required',
+                'summary'      => 'required',
+                'description'  => 'required',
+                'order'        => 'required',
+                'price'        => 'required',
+                'image'        => 'required|image|mimes:png,jpg,jpeg,svg,gif|max:3000'
+            ]);
 
-        if($orderExist){
+        try{
+            // verify if order exist and update
+            $orderExist = Pack::where('order',$request->order)->first();
 
-            $pack = $orderExist;
-            $newOrder = Pack::count()+1;
-            $pack->update(['order' => $newOrder]);
-        }
+            if($orderExist){
 
-        $pack               = new Pack();
-        $pack->title        = $request->title;
-        $pack->summary      = $request->summary;
-        $pack->description  = $request->description;
-        $pack->order        = $request->order;
-        $pack->price        = $request->price;
-        $pack->save();
+                $pack = $orderExist;
+                $newOrder = Pack::count()+1;
+                $pack->update(['order' => $newOrder]);
+            }
 
-        //If we have an image file, we store it, and move it in the database
-        if($request->file('image')){
-            $imagePath = $request->file('image');
-            $imageName = $pack->id . '_' . $pack->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
-            $path = $request->file('image')->storeAs('images/packs/' . $pack->id, $imageName, 'public');
-            $pack->image = $path;
+            $pack               = new Pack();
+            $pack->title        = $request->title;
+            $pack->summary      = $request->summary;
+            $pack->description  = $request->description;
+            $pack->order        = $request->order;
+            $pack->price        = $request->price;
+            $pack->is_active    = $request->has('is_active');
             $pack->save();
+
+            //If we have an image file, we store it, and move it in the database
+            if($request->file('image')){
+                $imagePath = $request->file('image');
+                $imageName = $pack->id . '_' . $pack->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
+                $path = $request->file('image')->storeAs('images/packs/' . $pack->id, $imageName, 'public');
+                $pack->image = $path;
+                $pack->save();
+            }
+            $pack->image = $request->image;
+
+
+            return redirect()->route('packs.index')->with('status', 'Pack criado com sucesso!');
+        }catch (\Exception $exception){
+            return redirect()->route('packs.create')->with('failed', 'Ocorreu um erro! Tente Novamente');
         }
-        $pack->image = $request->image;
 
 
-        return redirect()->route('packs.index')->with('status', 'Pack criado com sucesso!');
     }
 
 
@@ -94,28 +102,39 @@ class PackController extends Controller
             'summary'      => 'required',
             'description'  => 'required',
             'order'        => 'required',
-            'price'        => 'required'
+            'price'        => 'required',
+            'image'        => 'image|mimes:png,jpg,jpeg,svg,gif|max:3000'
         ]);
 
-        // verify if order change and if exist and update
-        if($request->order != $request->lastOrder){
-            $orderExist = Pack::where('order',$request->order)->first();
-            $existPack = $orderExist;
-            $existPack->update(['order' => $request->lastOrder]);
+        try {
+            // verify if order change and if exist and update
+            if($request->order != $request->lastOrder){
+                $orderExist = Pack::where('order',$request->order)->first();
+                $existPack = $orderExist;
+                $existPack->update(['order' => $request->lastOrder]);
 
+            }
+
+            $pack->update($request->except('image','is_active'));
+
+
+                $pack->is_active    = $request->has('is_active');
+                $pack->save();
+
+
+            if($request->hasfile('image')){
+                Storage::deleteDirectory('public/images/packs/' . $pack->id);
+                $imagePath = $request->file('image');
+                $imageName = $pack->id . '_' . $pack->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
+                $path = $request->file('image')->storeAs('images/packs/' . $pack->id, $imageName, 'public');
+                $pack->image = $path;
+                $pack->save();
+            }
+            return redirect()->route('packs.index')->with('status', 'Pack atualizado com sucesso!');
+        }catch (\Exception $exception){
+            return redirect()->route('pack.edit',[$pack->id])->with('failed', 'Ocorreu um erro! Tente Novamente');
         }
 
-        $pack->update($request->except('image'));
-
-        if($request->hasfile('image')){
-            Storage::deleteDirectory('public/images/packs/' . $pack->id);
-            $imagePath = $request->file('image');
-            $imageName = $pack->id . '_' . $pack->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
-            $path = $request->file('image')->storeAs('images/packs/' . $pack->id, $imageName, 'public');
-            $pack->image = $path;
-            $pack->save();
-        }
-        return redirect()->route('packs.index')->with('status', 'Pack atualizado com sucesso!');
     }
 
 
@@ -125,5 +144,13 @@ class PackController extends Controller
         $pack->delete();
 
         return redirect()->route('packs.index')->with('status', 'Pack eliminado com sucesso!');
+    }
+
+    public function updateState(Request $request ,Pack $pack)
+    {
+
+        $pack->is_active    = $request->has('is_active');
+        $pack->save();
+        return redirect()->route('packs.index')->with('status', 'Estado da publicação atualizado com sucesso!');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\NewMail;
+use App\Pack;
 use App\Page;
 use App\Video;
 use App\Pagina;
@@ -108,9 +109,16 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      //$paginas = Pagina::all();
+
       $pagina = Pagina::where('title','precos')->first();
-       return view('pages/precos', [ 'pagina' => $pagina, 'shareComponent' => $shareComponent]);
+      $packs =Pack::where('is_active','1')->orderBy('order', 'asc')->paginate(10);
+       return view('pages/precos', [ 'pagina' => $pagina, 'shareComponent' => $shareComponent, 'packs' => $packs]);
+    }
+
+    public function packShow(Pack $pack){
+
+        $pagina = Pagina::where('title','precos')->first();
+        return view('pages/pack-show', [ 'pagina' => $pagina, 'pack' => $pack]);
     }
 
 
@@ -122,7 +130,7 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      
+
       $pagina = Pagina::where('title','politica de cookies')->first();
        return view('pages/politica-de-cookies', [  'pagina' => $pagina, 'shareComponent' => $shareComponent]);
     }

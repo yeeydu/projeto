@@ -1,5 +1,13 @@
-<div class="container">
-    <h2>Add Pack</h2>
+<div id="media" class="col-lg-12 col-lg-offset-2 mx-auto">
+    @if (session('failed'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('failed') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    <h2>Novo Pack</h2>
     <a href="{{route('packs.index') }}" class="btn btn-primary">Back</a>
     <form method="POST" action="{{route('pack.store')}}" enctype="multipart/form-data">
         @csrf
@@ -76,6 +84,11 @@
                 <strong>{{ $message }}</strong>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" switch="bool">
+            <label class="custom-control-label" for="is_active">Publicar</label>
+        </div>
+        <button type="submit" class="btn btn-primary show_confirm_create">Submit</button>
     </form>
 </div>

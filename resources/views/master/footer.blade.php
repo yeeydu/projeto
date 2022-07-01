@@ -35,14 +35,14 @@
              >
       <!-- Left -->
        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-3">
- 
+
         <span>Siga-nos nas redes sociais:</span>
       </div>
       <!-- Left -->
 
       <!-- Right -->
      <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-3">
- 
+
 		<a class="footer__social-link text-white" href="https://www.facebook.com/diogopintoweddings" target="_blank">
 			<i class="fab fa-facebook"></i>
 		</a>
@@ -90,7 +90,7 @@
             <p>
               <a href="videos" class="text-dark">Video</a>
             </p>
-          
+
           </div>
           <!-- Grid column -->
 
@@ -108,7 +108,7 @@
             <p>
               <a href="politica-de-privacidade" class="text-dark">Política de Privacidade</a>
             </p>
-        
+
           </div>
           <!-- Grid column -->
 
@@ -122,7 +122,7 @@
                 />
             <p><i class="fas fa-envelope mr-3"></i> geral@diogopinto.pt</p>
             <p><i class="fas fa-phone mr-3"></i> +351 916 884 127</p>
-             
+
           </div>
           <!-- Grid column -->
         </div>
@@ -139,21 +139,19 @@
     </div>
     <!-- Copyright -->
 
- 
+
   </footer>
   <!-- Footer -->
 
 <!-- End of .container -->
 
   <!-- Cookie Consent -->
-@include('cookieConsent::index')
+@include('cookieConsent::index');
 
  <!-- Main JS -->
  <script src="js/app.min.js "></script>
- <script src="//localhost:35729/livereload.js"></script>
 
   <!---Share Social Buttons -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-<script src="{{ asset('js/share.js') }}"></script> 
+<script src="{{ asset('js/share.js') }}"></script>
 
- 

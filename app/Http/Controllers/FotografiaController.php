@@ -25,9 +25,6 @@ class FotografiaController extends Controller
         $fotografias = Fotografia::orderBy('order', 'asc')->paginate(10);
         return view('admin.pages.fotografias.index', ['fotografias' => $fotografias]);
 
-        $category = Category::find($fotografias->category_id);
-        return view('admin.pages.fotografias.index',['categorias' => $category]);
-
     }
 
     /**

@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Orcamento;
+use App\Extra;
 use Faker\Generator as Faker;
 
-$factory->define(Orcamento::class, function (Faker $faker) {
+$factory->define(Extra::class, function (Faker $faker) {
     return [
         //
     ];

@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Orcamento;
+use App\CustomPrice;
 use Illuminate\Http\Request;
 
-class OrcamentoController extends Controller
+class CustomPriceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function  __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        return view('admin.pages.custom-price.index');
     }
 
     /**
@@ -41,10 +41,10 @@ class OrcamentoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Orcamento  $orcamento
+     * @param  \App\CustomPrice  $customPrice
      * @return \Illuminate\Http\Response
      */
-    public function show(Orcamento $orcamento)
+    public function show(CustomPrice $customPrice)
     {
         //
     }
@@ -52,10 +52,10 @@ class OrcamentoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Orcamento  $orcamento
+     * @param  \App\CustomPrice  $customPrice
      * @return \Illuminate\Http\Response
      */
-    public function edit(Orcamento $orcamento)
+    public function edit(CustomPrice $customPrice)
     {
         //
     }
@@ -64,10 +64,10 @@ class OrcamentoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Orcamento  $orcamento
+     * @param  \App\CustomPrice  $customPrice
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Orcamento $orcamento)
+    public function update(Request $request, CustomPrice $customPrice)
     {
         //
     }
@@ -75,10 +75,10 @@ class OrcamentoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Orcamento  $orcamento
+     * @param  \App\CustomPrice  $customPrice
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Orcamento $orcamento)
+    public function destroy(CustomPrice $customPrice)
     {
         //
     }

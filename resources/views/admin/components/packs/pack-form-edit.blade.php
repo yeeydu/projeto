@@ -1,4 +1,12 @@
-<div class="container">
+<div id="media" class="col-lg-12 col-lg-offset-2 mx-auto">
+    @if (session('failed'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('failed') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
     <h2>EDITAR - {{$pack->title}}</h2>
     <a href="{{route('packs.index') }}" class="btn btn-primary">Back</a>
     <form method="POST" action="{{route('pack.update',['pack' => $pack->id])}}" enctype="multipart/form-data">
@@ -74,6 +82,14 @@
                 <strong>{{ $message }}</strong>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <div class="form-group">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" switch="bool" @if ($pack->is_active ==true) checked @endif value="{{$pack->is_active}}">
+                <label class="custom-control-label" for="is_active">Estado Publicação</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary show_confirm_edit">Submit</button>
     </form>
 </div>
