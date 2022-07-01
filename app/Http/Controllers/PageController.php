@@ -10,6 +10,7 @@ use App\Pagina;
 use App\Fotografia;
 use App\Slider;
 use App\Orcamento;
+use App\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -24,6 +25,7 @@ class PageController extends Controller
     public function index() // Home
     {
       return view('home');
+      
     }
 
     public function slider(){
@@ -35,8 +37,12 @@ class PageController extends Controller
       ->whatsapp('Diogo Pinto');
 
       $sliders = Slider::all();
-      return view('index', ['sliders' => $sliders, 'shareComponent' => $shareComponent]); // Homepage with Carousel
+      $testimonials = Testimonial::all();
+      $fotografias = Fotografia::orderBy('order', 'desc')->paginate(6);
+      return view('index', ['sliders' => $sliders, 'fotografias' => $fotografias, 'testimonials' => $testimonials, 'shareComponent' => $shareComponent]); // Homepage with Carousel
     }
+
+    
 
     public function sobre()
     {
@@ -46,7 +52,6 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      //$paginas = Pagina::all();
       $pagina = Pagina::where('title','Sobre')->first();
       return view('pages/sobre', ['pagina' => $pagina,  'shareComponent' => $shareComponent]); // pagina sobre
     }
@@ -59,11 +64,12 @@ class PageController extends Controller
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
-      //$paginas = Pagina::all();
+
       $pagina = Pagina::where('title','fotografias')->first();
       $fotografias = Fotografia::orderBy('order', 'asc')->paginate(10);
        return view('pages/fotografias', ['fotografias' => $fotografias, 'pagina' => $pagina, 'shareComponent' => $shareComponent]);
     }
+
 
     public function videos()  // pagina videos
     {
@@ -74,7 +80,6 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      //$paginas = Pagina::all();
       $pagina = Pagina::where('title','videos')->first();
       $videos = Video::select("*")
       ->where("category_id", 2)
@@ -92,7 +97,6 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      //$paginas = Pagina::all();
       $pagina = Pagina::where('title','corporate')->first();
       $videos = Video::select("*")
       ->where("category_id", 5)
@@ -108,7 +112,6 @@ class PageController extends Controller
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
-
 
       $pagina = Pagina::where('title','precos')->first();
       $packs =Pack::where('is_active','1')->orderBy('order', 'asc')->paginate(10);

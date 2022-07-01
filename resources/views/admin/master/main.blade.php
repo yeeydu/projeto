@@ -23,7 +23,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!---------->
     <x-embed-styles />
-    <script src="https://cdn.tiny.cloud/1/7hfse5cdit2wup27yravzd3aisl1pjy1ol408z4dwx5ix5ql/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- Old code - stay here if something goes wrong
+    <script src="https://cdn.tiny.cloud/1/7hfse5cdit2wup27yravzd3aisl1pjy1ol408z4dwx5ix5ql/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> 
+    --->
+    <script src="https://cdn.tiny.cloud/1/2nqti0o9cs47uqfi5gsurhnlzqy96q0qdp9ou5knw6gdg9ya/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 

@@ -14,16 +14,12 @@
             <strong>{{ $message }}</strong>
             @enderror
         </div>
-        <div class="form-group">
+        <div>
             <label for="exampleInputPassword1">Description</label>
-            <textarea rows="14" type="text"  name="description" id="description" autocomplete="description" placeholder="description" value="{{$paginas->description}}"
+            <p rows="14" type="text"   
             class="form-control @error('description')
                     is-invalid
-                @enderror"
-            value="{{ old('description') }}" required aria-describedby="nameHelp">{{$paginas->description}}</textarea>
-            @error('description')  <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-            @enderror
+                @enderror">{!!$paginas->description!!}</p>    
         </div>
 
         <label for="exampleInputPassword1">Image</label>

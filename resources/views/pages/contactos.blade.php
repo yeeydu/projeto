@@ -95,14 +95,17 @@
                 </div>
                 @if($pagina != null)
                 <div class="col-12 col-lg-4 my-4">
-                {!! $pagina->description !!}
+                
+                    {!! $pagina->description !!}
                 </div>
                 @endif
             </div>
 
-            <div id="social-links">
-                <p>Share the love</p>
-                {!! $shareComponent !!}
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
+                 <p>Share the love</p>
+                  {!! $shareComponent !!}
+                 </div>
             </div>
     </div>
 @endsection

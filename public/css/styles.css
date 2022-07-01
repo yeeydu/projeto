@@ -14,6 +14,46 @@
     min-height: 550px;
 }
 
+.carousel-control-prev-icon {
+    background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/chevron-double-left.svg");
+    background-size: 22px;
+   }
+   
+.carousel-control-next-icon{
+    /* background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/camera-fill.svg");*/
+     background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/chevron-double-right.svg");
+     background-size: 20px;
+   }
+
+
+/* carousel testimonial */
+#testimonial{
+    background-size: cover;
+    background-color: #c5c8caa7;
+    height: 300px;
+    min-height: 200px;
+}
+
+.tprev {
+    background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/blockquote-left.svg");
+    background-size: 30px;
+   }
+   
+.tnext{
+     background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/blockquote-right.svg");
+     background-size: 30px;
+   }
+
+.blockquote{
+    margin-top: 60px;
+    color: black;
+ 
+}
+
+.blockquote-footer{
+    color: #583863;
+}
+
 /* top image  para funcionar full width a div tem de ter "container-fuid" */
 #page-image{
     height: 340px;
@@ -134,3 +174,19 @@ div#social-links p{  /*Text share*/
  
   }
  
+  /*  Gallery foto home */
+.imgHome{  
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    height: 65%; 
+    max-width: 70%;
+    align-items:center;
+    
+}
+
+.imgHome:hover{
+    transform: scale(0.97);
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+

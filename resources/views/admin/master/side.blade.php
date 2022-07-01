@@ -23,6 +23,8 @@
                         <li class="@if(Request::is('admin/custom-price')) active @endif"><a class="price-icon" href="{{route('custom-price.index') }}">Orçamento</a></li>
                     </ul>
                 </li>
+                <li class="@if(Request::is('admin/testimonials')) active @endif"><a class="video-icon" href="{{ url('admin/testimonials') }}">Testimonios</a></li>
+                <li class="@if(Request::is('admin/precos')) active @endif"><a href="{{ url('admin/precos') }}">Preços</a></li>
                 <li class="dropdown">
                     <a href="#settings" class="dropdown-toggle"  data-toggle="dropdown">Utilizador<span class="caret"></span></a>
                     <ul class="dropdown-menu animated fadeInLeft" role="menu">

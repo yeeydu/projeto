@@ -32,7 +32,7 @@
                         <tr>
                           <!--<th scope="row">{{$pagina->id}}</th>-->
                             <td class="w-25">{{$pagina->title}}</td>
-                            <td class="w-25">{!! substr($pagina->description,0, 60) !!}</td>                            
+                            <td class="w-25">{!! substr($pagina->description,0, 50) !!}</td>                            
                             <td>
                             @if ($pagina->image)
                               <img class="img-thumbnail w-25" src="{{ asset('storage/' . $pagina->image) }}" alt="image">

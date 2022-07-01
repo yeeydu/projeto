@@ -1,7 +1,9 @@
 <?php
 
+use App\Pagina;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +33,6 @@ Route::post('/contactos','PageController@contactSubmit')->name('contact.submit')
 Route::get('/politica-de-cookies', 'PageController@cookies')->name('politica-de-cookies');
 Route::get('/politica-de-privacidade', 'PageController@privacidade')->name('politica-de-privacidade');
 
-
 Route::get('/admin', 'HomeController@index')->name('admin');
 Route::group(['middleware' => 'admin'], function () {
 
@@ -40,6 +41,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/fotografias', 'FotografiaController');
     Route::resource('admin/videos', 'VideoController');
 
+    Route::resource('admin/testimonials', 'TestimonialController');
+    Route::resource('admin/orcamentos', 'OrcamentoController');
 
     Route::post('admin/precos','PackController@store')->name('pack.store');
     Route::get('admin/precos','PackController@index')->name('packs.index');

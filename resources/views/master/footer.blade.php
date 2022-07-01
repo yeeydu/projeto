@@ -26,7 +26,7 @@
   <!-- Footer -->
   <footer
           class="text-center text-lg-start text-dark"
-          style="background-color: #ECEFF1"
+          style="background-color: #F7FAFC"
           >
     <!-- Section: Social media -->
     <section
@@ -120,9 +120,10 @@
                 class="mb-4 mt-0 d-inline-block mx-auto"
                 style="width: 60px; background-color: #443549; height: 2px"
                 />
-            <p><i class="fas fa-envelope mr-3"></i> geral@diogopinto.pt</p>
-            <p><i class="fas fa-phone mr-3"></i> +351 916 884 127</p>
-
+                {!! $pagina->description !!}
+          <!--  <p><i class="fas fa-envelope mr-3"></i> geral@diogopinto.pt</p>
+            <p><i class="fas fa-phone mr-3"></i> +351 916 884 127</p> -->
+             
           </div>
           <!-- Grid column -->
         </div>
