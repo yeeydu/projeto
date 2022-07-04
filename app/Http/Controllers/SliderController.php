@@ -109,7 +109,7 @@ class SliderController extends Controller
 
        
         if($request->hasfile('image')){
-            Storage::deleteDirectory('public/images/sliders/' . $slider->id);
+            Storage::deleteDirectory('public/images/slider/' . $slider->id);
             $imagePath = $request->file('image');
             $imageName = $slider->id . '_' . $slider->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
             $path = $request->file('image')->storeAs('images/slider/' . $slider->id, $imageName, 'public');
