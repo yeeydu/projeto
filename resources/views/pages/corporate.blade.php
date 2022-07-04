@@ -24,7 +24,7 @@
           <div class="text-center">
                <h2>{{$video->title}}</h2>
           </div>
-          <div class="pb-3">
+          <div class="video" >
                <x-embed url="{{ $video->url }}" />
           </div>
           <div class="text-justify mb-5">

@@ -33,7 +33,7 @@
 <!--- Fotografias  -->
     <div class="row mb-5 mt-5 text-center">
         @foreach($fotografias as $foto)
-        <div class="col col-lg-4 col-md-4 col-sm-6 pb-2 ">
+        <div class="col-lg-4 col-md-4 col-sm-6 pb-2 ">
             <div class="pb-2"> 
             @if ($foto->image)
             <a href="/fotografias">

@@ -239,10 +239,13 @@ div#social-links p{  /*Text share*/
 .imgHome{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 10px;
-    height: 65%;
     max-width: 70%;
+    max-height: 260px; 
+    min-height: 250px;
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
     align-items:center;
-
 }
 
 .imgHome:hover{
@@ -251,3 +254,16 @@ div#social-links p{  /*Text share*/
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
+  /*  images in fotografias page */
+.imgFotografias{
+    max-height: 310px; 
+    min-height: 160px; 
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+  /*  video in videos page */
+.video {
+    border-radius: 8px;
+    overflow: hidden;
+  }
