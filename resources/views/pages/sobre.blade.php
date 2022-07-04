@@ -20,7 +20,7 @@
                 </div>
             </div>
         @endif
-
+  <!--- Social share -->
         <div class="row">
             <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
                 <p>Share the love</p>

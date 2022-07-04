@@ -64,7 +64,7 @@
                 style="width: 60px; background-color: #443549; height: 2px"
                 />
             <p>
-              Empresa de confiança e alto nível de professionalismo.
+              Somos uma empresa de confiança, uma equipa dedicada com um alto nível de profissionalismo.
             </p>
           </div>
           <!-- Grid column -->
@@ -78,11 +78,14 @@
                 style="width: 60px; background-color: #443549; height: 2px"
                 />
             <p>
+              <a href="videos" class="text-dark">Video</a>
+            </p>
+            <p>
               <a href="fotografias" class="text-dark">Fotografia</a>
             </p>
             <p>
-              <a href="videos" class="text-dark">Video</a>
-            </p>
+             <a href="corporate" class="text-dark">Corporate</a>
+           </p>
 
           </div>
           <!-- Grid column -->
@@ -95,6 +98,9 @@
                 class="mb-4 mt-0 d-inline-block mx-auto"
                 style="width: 60px; background-color: #443549; height: 2px"
                 />
+            <p>
+              <a href="precos" class="text-dark">Preços</a>
+            </p>
             <p>
               <a href="politica-de-cookies" class="text-dark">Política de Cookies</a>
             </p>
@@ -138,7 +144,7 @@
 <!-- End of .container -->
 
   <!-- Cookie Consent -->
-@include('cookieConsent::index');
+@include('cookieConsent::index')
 
  <!-- Main JS -->
  <script src="js/app.min.js "></script>

@@ -9,11 +9,12 @@ use App\Video;
 use App\Pagina;
 use App\Fotografia;
 use App\Slider;
-use App\Orcamento;
+use App\Category;
 use App\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use Jorenvh\Share\Share;
 
 class PageController extends Controller
 {
@@ -46,7 +47,7 @@ class PageController extends Controller
 
     public function sobre()
     {
-      $shareComponent = \Share::Page('https://diogopinto.pt', 'Sobre')
+      $shareComponent = \Share::page('https://diogopinto.pt/sobre', 'Sou o Diogo um apaixonado pelas artes do cinema e o meu desejo era sem dúvida alguma abraçar a área do cinema. ')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -59,7 +60,7 @@ class PageController extends Controller
     public function fotografias() // pagina fotografias
     {
 
-      $shareComponent = \Share::page('https://diogopinto.pt', 'Fotografia')
+      $shareComponent = \Share::page('https://diogopinto.pt/fotografias', 'Fotografia')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -74,7 +75,7 @@ class PageController extends Controller
     public function videos()  // pagina videos
     {
       // $videos = Video::orderBy('category_id', 'asc')->get();
-      $shareComponent = \Share::page('https://diogopinto.pt', 'Video')
+      $shareComponent = \Share::page('https://diogopinto.pt/videos', 'Video')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -82,7 +83,7 @@ class PageController extends Controller
 
       $pagina = Pagina::where('title','videos')->first();
       $videos = Video::select("*")
-      ->where("category_id", 2)
+      ->where("category_id", 2)  
       ->orderBy("order", "asc")->get();
 
        return view('pages/videos', ['videos' => $videos, 'pagina' => $pagina, 'shareComponent' => $shareComponent]);
@@ -91,7 +92,7 @@ class PageController extends Controller
     public function corporate()   // pagina corporate
     {
 
-      $shareComponent = \Share::page('https://diogopinto.pt', 'Fotografia & Video Corporate')
+      $shareComponent = \Share::page('https://diogopinto.pt/corporate', 'Fotografia & Video Corporate')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -107,7 +108,7 @@ class PageController extends Controller
 
     public function precos()   // pagina preços
     {
-      $shareComponent = \Share::page('https://diogopinto.pt', 'Fotografia & Video Preços')
+      $shareComponent = \Share::page('https://diogopinto.pt/precos', 'Packs de preços dos nossos serviços')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -120,6 +121,12 @@ class PageController extends Controller
 
     public function packShow(Pack $pack){
 
+      $shareComponent = \Share::page('https://diogopinto.pt/packs', 'Packas serviços de Fotografia & Video Preços')
+      ->facebook('Diogo Pinto')
+      ->twitter('Diogo Pinto')
+      ->linkedin('Diogo Pinto')
+      ->whatsapp('Diogo Pinto');
+
         $pagina = Pagina::where('title','precos')->first();
         return view('pages/pack-show', [ 'pagina' => $pagina, 'pack' => $pack]);
     }
@@ -127,7 +134,7 @@ class PageController extends Controller
 
     public function cookies()   // pagina cookies
     {
-      $shareComponent = \Share::page('https://diogopinto.pt', 'Fotografia & Video')
+      $shareComponent = \Share::page('https://diogopinto.pt/politica-de-cookies', 'Politica de cookies')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -140,7 +147,7 @@ class PageController extends Controller
 
     public function privacidade()   // pagina preços
     {
-      $shareComponent = \Share::page('https://diogopinto.pt', 'Fotografia & Video')
+      $shareComponent = \Share::page('https://diogopinto.pt/politica-de-privacidade', 'Politica de privacidade')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -153,7 +160,7 @@ class PageController extends Controller
 
    public function contactos()   // pagina contactos
     {
-      $shareComponent = \Share::page('https://diogopinto.pt', 'Contactos')
+      $shareComponent = \Share::page('https://diogopinto.pt/contactos', 'Contactos')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')

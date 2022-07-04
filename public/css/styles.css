@@ -27,10 +27,16 @@
 
 /* carousel testimonial */
 #testimonial{
-    background-size: cover;
+    background-size: cover; 
     background-color: #c5c8caa7;
     height: 300px;
     min-height: 200px;
+}
+
+#testimonial .carousel-item{
+    background-size: cover;
+
+
 }
 
 .tprev {
