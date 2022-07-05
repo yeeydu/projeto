@@ -4,14 +4,12 @@
     <form>
         @csrf
         <div class="form-group">
-            <label for="title">Name</label>
+            <label for="title">Nome</label>
             <input type="text" name="name" id="name" autocomplete="name" class="form-control" disabled value="{{$testimonial->name}}">
         </div>
-        <div class="form-group">
-            <label for="summary">Description</label>
-            <div class="form-control" style="background-color: #e9ecef">
+        <span>Description</span>
+        <div class="show-style">
                 {!!$testimonial->description!!}
-            </div>
         </div>
 
     </form>

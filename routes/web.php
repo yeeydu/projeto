@@ -52,6 +52,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/videos', 'VideoController');
 
     Route::resource('admin/testimonials', 'TestimonialController');
+    Route::put('admin/testimonials/update/{testimonial}', 'TestimonialController@updateState')->name('testimonials.update-state');
+
     Route::resource('admin/orcamentos', 'OrcamentoController');
 
     Route::get('admin/users','Admin\UsersController@index')->name('users.index');
