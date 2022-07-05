@@ -217,6 +217,9 @@ a[href*="#settings"]::before {
 .video-icon::before{
     content: "\f03d" !important;
 }
+.testimonial-icon::before{
+    content: "\f10e" !important;
+}
 .pages-icon::before{
     content: "\f15c" !important;
 }

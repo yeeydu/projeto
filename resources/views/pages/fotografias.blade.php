@@ -22,11 +22,10 @@
 
     <div class="row mx-auto pt-3 col-lg-12 col-md-12 col-sm-12">
         @foreach($fotografias as $foto)
-        <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
-
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="pb-2"> <!----->
             @if ($foto->image)
-            <img class="w-100" style="max-height: 310px; min-height: 160px;"  src="{{ asset('storage/' . $foto->image) }}" alt="image"></td>
+            <img class="w-100 imgFotografias"  src="{{ asset('storage/' . $foto->image) }}" alt="image"></td>
             @else
             <p>No Image</p>
             @endif
@@ -42,7 +41,7 @@
         @endforeach
     </div>
     <br>
-
+   <!--- Social share -->
     <div class="row">
         <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
             <p>Share the love</p>

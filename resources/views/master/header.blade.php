@@ -40,8 +40,11 @@
 
         </div>
     </nav>
-    <a class="navbar-brand order-lg-0" href="/">
-        <img class="img-logo" src="/img/logofinal.png" />
-    </a>
+
+    <div class="d-flex justify-content-center">
+        <a class="navbar-brand order-lg-0" href="/">
+            <img class="img-logo" src="/img/logofinal.png" />
+        </a>
+    </div>
 
 </header>

@@ -24,7 +24,7 @@
           <div class="text-center">
                <h2>{{$video->title}}</h2>
           </div>
-          <div class="pb-3">
+          <div class="video" >
                <x-embed url="{{ $video->url }}" />
           </div>
           <div class="text-justify mb-5">
@@ -33,7 +33,7 @@
         </div>
       @endforeach
      </div>
-
+  <!--- Social share -->
     <div class="row">
         <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
             <p>Share the love</p>

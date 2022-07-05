@@ -11,7 +11,7 @@
 </section>     
  <div class="container">
         <div class="row justify-content-center  mt-3 mb-2 siteText">
-            <div class="col col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                 <p>
                     {!! $pagina->description !!}
                 </p>
@@ -25,15 +25,17 @@
           <div class="text-center">
                <h2>{{$video->title}}</h2>
           </div>
-          <div class="pb-3">
-               <x-embed url="{{ $video->url }}" />
-          </div> 
-          <div class="text-justify mb-5">
+          <div class="video" >
+              <x-embed  url="{{ $video->url }}" />
+            </div> 
+            <div class="text-justify mb-5">
+          <!-- <sub>{{$video->category->title}}</sub>-->
                <p>{!!$video->description !!}</p>
           </div>
     </div>
         @endforeach
  </div>
+   <!--- Social share -->
     <div class="row">
         <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
             <p>Share the love</p>
