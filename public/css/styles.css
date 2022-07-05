@@ -27,7 +27,7 @@
 
 /* carousel testimonial */
 #testimonial{
-    background-size: cover; 
+    background-size: cover;
     background-color: #c5c8caa7;
     height: 300px;
     min-height: 200px;
@@ -35,8 +35,6 @@
 
 #testimonial .carousel-item{
     background-size: cover;
-
-
 }
 
 .tprev {
@@ -81,10 +79,10 @@
     animation: bounce 1.5s infinite;
 }
 
-.titleAnimate{
+/* .titleAnimate{
 
     animation:  colors 4s infinite, bounce 3s infinite;
-}
+} */
 
 @keyframes bounce {
     from {
@@ -245,7 +243,7 @@ div#social-links p{  /*Text share*/
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 10px;
     max-width: 70%;
-    max-height: 260px; 
+    max-height: 260px;
     min-height: 250px;
     width:  100px;
     height: 100px;
@@ -261,8 +259,8 @@ div#social-links p{  /*Text share*/
 
   /*  images in fotografias page */
 .imgFotografias{
-    max-height: 310px; 
-    min-height: 160px; 
+    max-height: 310px;
+    min-height: 160px;
     object-fit: cover;
     border-radius: 8px;
 }
