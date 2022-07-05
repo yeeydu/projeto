@@ -8,7 +8,7 @@
         </div>
     @endif
     <h2>Novo Pack</h2>
-    <a href="{{route('packs.index') }}" class="btn btn-primary">Back</a>
+    <a href="{{route('packs.index') }}" class="btn btn-primary">Voltar</a>
     <form method="POST" action="{{route('pack.store')}}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
@@ -45,9 +45,9 @@
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Posição (ordem)</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="order" required value="{{ old('order') }}">
-                <option selected value="{{ old('order') }}">Choose...</option>
+            <label for="order">Posição (ordem)</label>
+            <select class="form-control @error('order') is-invalid @enderror" id="order" name="order" required value="{{ old('order') }}">
+                <option selected value="{{ old('order') }}">Selecionar</option>
 
                 @if($packs->isEmpty())
                     <option>1</option>
@@ -60,6 +60,10 @@
                     @endforeach
                 @endif
             </select>
+            @error('order')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{$message}}</strong>
+            @enderror
         </div>
 
         <div class="form-group">

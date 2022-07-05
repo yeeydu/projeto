@@ -4,6 +4,7 @@ use App\Pagina;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,15 @@ use Illuminate\Support\Facades\View;
 Route::get('/', function () {
     return view('index');
 });
+//Rota de teste para validação da pass
+Route::get('/teste/{email}', function (Request $request) {
+    if (! $request->hasValidSignature()) {
+        abort(401);
+    }
 
+    // ...
+})->name('teste');
+//
 Auth::routes();
 Route::get('/', 'PageController@slider')->name('slider');
 Route::get('/sobre', 'PageController@sobre')->name('sobre');
@@ -32,17 +41,20 @@ Route::get('/contactos', 'PageController@contactos')->name('contactos');
 Route::post('/contactos','PageController@contactSubmit')->name('contact.submit');
 Route::get('/politica-de-cookies', 'PageController@cookies')->name('politica-de-cookies');
 Route::get('/politica-de-privacidade', 'PageController@privacidade')->name('politica-de-privacidade');
-
+Route::get('admin/fotografias/query', 'FotografiaController@picsQuery')->name('pic.update-state');
 Route::get('/admin', 'HomeController@index')->name('admin');
 Route::group(['middleware' => 'admin'], function () {
 
 
     Route::resource('admin/paginas', 'PaginaController');
     Route::resource('admin/fotografias', 'FotografiaController');
+    Route::put('admin/fotografias/update/{pic}', 'FotografiaController@updateState')->name('pic.update-state');
     Route::resource('admin/videos', 'VideoController');
 
     Route::resource('admin/testimonials', 'TestimonialController');
     Route::resource('admin/orcamentos', 'OrcamentoController');
+
+    Route::get('admin/users','Admin\UsersController@index')->name('users.index');
 
     Route::post('admin/precos','PackController@store')->name('pack.store');
     Route::get('admin/precos','PackController@index')->name('packs.index');

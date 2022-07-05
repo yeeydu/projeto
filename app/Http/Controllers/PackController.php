@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Utilities;
 use App\Pack;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -68,8 +69,6 @@ class PackController extends Controller
                 $pack->image = $path;
                 $pack->save();
             }
-            $pack->image = $request->image;
-
 
             return redirect()->route('packs.index')->with('status', 'Pack criado com sucesso!');
         }catch (\Exception $exception){
@@ -97,6 +96,7 @@ class PackController extends Controller
 
     public function update(Request $request, Pack $pack)
     {
+
         $this->validate($request, [
             'title'        => 'required',
             'summary'      => 'required',
@@ -107,16 +107,11 @@ class PackController extends Controller
         ]);
 
         try {
-            // verify if order change and if exist and update
-            if($request->order != $request->lastOrder){
-                $orderExist = Pack::where('order',$request->order)->first();
-                $existPack = $orderExist;
-                $existPack->update(['order' => $request->lastOrder]);
 
-            }
+            // verify if order change and if exist and update
+            Utilities::verifyOrder($request->order,$request->lastOrder, $fieldName = 'order',$tableName = 'packs');
 
             $pack->update($request->except('image','is_active'));
-
 
                 $pack->is_active    = $request->has('is_active');
                 $pack->save();
@@ -142,13 +137,25 @@ class PackController extends Controller
     {
         Storage::deleteDirectory('public/images/packs/' . $pack->id);
         $pack->delete();
+        $packs = Pack::orderBy('order', 'asc')->get();
+
+        $count=0;
+        foreach ($packs as $packU){
+
+            if($packU->order -1  != $count){
+
+                $packU->order = $count+1;
+                $packU->save();
+
+            }
+            $count++;
+        }
 
         return redirect()->route('packs.index')->with('status', 'Pack eliminado com sucesso!');
     }
 
     public function updateState(Request $request ,Pack $pack)
     {
-
         $pack->is_active    = $request->has('is_active');
         $pack->save();
         return redirect()->route('packs.index')->with('status', 'Estado da publicação atualizado com sucesso!');

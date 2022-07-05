@@ -3,19 +3,34 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\ChangePass;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notifiable;
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    use Notifiable;
+    public function  __construct()
+    {
+
+    $this->middleware('auth');
+
+    }
+
     public function index()
     {
-        //
+        /* -- Teste de Notificação
+        $url = url('http://127.0.0.1:8000/admin/precos/update/1');
+        (new User)->forceFill([
+            'name' => 'Their name',
+            'email' => 'andreteixeira.csn@gmail.com',
+        ])->notify(new ChangePass($url));*/
+        (new User)->forceFill([
+            'name' => 'Their name',
+            'email' => 'andreteixeira.csn@gmail.com',
+        ])->notify(new ChangePass());
+
     }
 
     /**

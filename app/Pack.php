@@ -15,6 +15,7 @@ class Pack extends Model
         'image',
         'price',
         'order',
+        'is_active',
     ];
 
 

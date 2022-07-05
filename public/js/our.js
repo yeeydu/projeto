@@ -56,7 +56,7 @@ $(document).ready(function () {
         isClosed = true;
 
     const mediaQuery = window.matchMedia('(max-width: 960px)')
-    const mediaq = window.matchMedia('(max-width: 630px)')
+    //const mediaq = window.matchMedia('(max-width: 630px)')
     function handleTabletChange(mediaQuery,mediaq) {
         // Check if the media query is true
         if (mediaQuery.matches) {
@@ -115,7 +115,7 @@ $(document).ready(function () {
         });
     });
 
-    /* sort columns*/
+    // sort columns
     $(".sort").click(function(){
         var table = $(this).parents('table').eq(0)
         var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
@@ -132,5 +132,30 @@ $(document).ready(function () {
     function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
     //-----------
 
+    // Submit form when category change
+    $("#category_id").on('change',function (){
+        var categoryChange = 1;
+        $("#category_change").val(categoryChange);
+        $("#category_change_create").val(categoryChange);
+        if( $("#create_pic").val() == 1){
+            $("#picCreate").submit();
+        }else{
+            $("#picEdit").submit();
+        }
+
+
+        /*$.get("/admin/fotografias/query?category_id=" + category_id_value, function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+            window.location.href = "/admin/fotografias/" + pic_id + "/edit?category_id=" + category_id_value
+        */
+
+        }
+    )
+
+    //
 
 });
+
+
+

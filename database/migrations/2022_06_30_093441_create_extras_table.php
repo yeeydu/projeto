@@ -18,6 +18,8 @@ class CreateExtrasTable extends Migration
             $table->text('name');
             $table->float('price',8,2);
             $table->text('price_description');
+            $table->integer('order');
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -15,6 +15,7 @@
                 <li class="@if(Request::is('admin/paginas')) active @endif"><a class="pages-icon" href="{{ url('admin/paginas') }}">Paginas</a></li>
                 <li class="@if(Request::is('admin/fotografias')) active @endif"><a href="{{ url('admin/fotografias') }}">Fotografias</a></li>
                 <li class="@if(Request::is('admin/videos')) active @endif"><a class="video-icon" href="{{ url('admin/videos') }}">Videos</a></li>
+                <li class="@if(Request::is('admin/testimonials')) active @endif"><a class="video-icon" href="{{ url('admin/testimonials') }}">Testimonios</a></li>
                 <li class="dropdown">
                     <a class="price-icon" href="#prices" class="dropdown-toggle"  data-toggle="dropdown" >Preços<span class="caret"></span></a>
                     <ul class="dropdown-menu animated fadeInLeft @if(Request::is('admin/precos','admin/extras','admin/custom-price')) show @endif" role="menu">
@@ -23,13 +24,11 @@
                         <li class="@if(Request::is('admin/custom-price')) active @endif"><a class="price-icon" href="{{route('custom-price.index') }}">Orçamento</a></li>
                     </ul>
                 </li>
-                <li class="@if(Request::is('admin/testimonials')) active @endif"><a class="video-icon" href="{{ url('admin/testimonials') }}">Testimonios</a></li>
-                <li class="@if(Request::is('admin/precos')) active @endif"><a href="{{ url('admin/precos') }}">Preços</a></li>
                 <li class="dropdown">
                     <a href="#settings" class="dropdown-toggle"  data-toggle="dropdown">Utilizador<span class="caret"></span></a>
                     <ul class="dropdown-menu animated fadeInLeft" role="menu">
                         <div class="dropdown-header">Definições</div>
-                        <li><a class="user-settings" href="#videos">Gestão</a></li>
+                        <li class="@if(Request::is('admin/users')) active @endif"><a class="user-settings" href="{{route('users.index') }}">Gestão</a></li>
                         <li><a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

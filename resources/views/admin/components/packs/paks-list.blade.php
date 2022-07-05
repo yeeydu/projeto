@@ -40,7 +40,7 @@
                     <th class="hide-with-media" scope="col">Imagem</th>
                     <th class="sort hide-with-media" scope="col">Preço <i class="fa-solid fa-arrow-down-a-z"></i></th>
                     <th scope="col">Action</th>
-                    <th scope="col">Publicação</th>
+                    <th class="sort" scope="col">Publicação<i class="fa-solid fa-arrow-down-a-z"></i></th>
                 </tr>
                 </thead>
                 <tbody id="listTable">

@@ -1,5 +1,6 @@
 @extends('master.main')
 @section('content')
+    @if($sliders->isNotEmpty())
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             @foreach ($sliders as $slide)
@@ -28,13 +29,14 @@
             <span class="sr-only">Next</span>
         </button>
     </div>
+    @endif
 <div class="container-fluid">
 
 <!--- Fotografias  -->
     <div class="row mb-5 mt-5 text-center">
         @foreach($fotografias as $foto)
         <div class="col col-lg-4 col-md-4 col-sm-6 pb-2 ">
-            <div class="pb-2"> 
+            <div class="pb-2">
             @if ($foto->image)
             <a href="/fotografias">
             <img class="w-100 imgHome"  src="{{ asset('storage/' . $foto->image) }}" alt="image">
@@ -42,7 +44,7 @@
             @else
             <p>No Image</p>
             @endif
-        </div> 
+        </div>
       </div>
         @endforeach
     </div>
@@ -92,6 +94,8 @@
         </div>
         </div>
 
+    @if($testimonials->isNotEmpty())
+
         <!--- Testimonials  -->
     <div id="testimonial" class="carousel slide" data-ride="carousel">
          <div class="carousel-inner ">
@@ -113,7 +117,7 @@
             <span class="sr-only">Next</span>
         </button>
     </div>
-
+        @endif
 
     <div class="row">
         <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">

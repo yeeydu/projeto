@@ -8,7 +8,7 @@
         </div>
     @endif
     <h2>EDITAR - {{$pack->title}}</h2>
-    <a href="{{route('packs.index') }}" class="btn btn-primary">Back</a>
+    <a href="{{route('packs.index') }}" class="btn btn-primary">Voltar</a>
     <form method="POST" action="{{route('pack.update',['pack' => $pack->id])}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -46,16 +46,19 @@
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Posição (ordem)</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="order" required >
+            <label for="order">Posição (ordem)</label>
+            <select class="form-control @error('order') is-invalid @enderror" id="order" name="order" required >
                 <option selected>{{$pack->order}}</option>
                     @foreach($packs as $otherPacks)
                         @if(count($packs) > 1 && $otherPacks->order != $pack->order)
                         <option>{{$otherPacks->order}}</option>
                         @endif
                     @endforeach
-
             </select>
+            @error('order')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{$message}}</strong>
+            @enderror
         </div>
         <input type="hidden" id="lastOrder" name="lastOrder" value="{{$pack->order}}">
 

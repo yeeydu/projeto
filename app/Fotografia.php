@@ -15,10 +15,11 @@ class Fotografia extends Model
       'category_id',
       'order',
       'image',
+      'is_active',
     ];
 
     public function category(){
-      
+
       return $this->belongsTo(Category::class);
       //return $this->hasOne('App\Category');
 

@@ -20,5 +20,13 @@ class UserSeeder extends Seeder
             'created_at'  => now(),
             'updated_at'  => now()
         ]);
+        \DB::table('users')->insert([
+            'name'        => 'André',
+            'email'       => 'andreteixeira.csn@gmail.com',
+            'password'    => bcrypt('12345678'),
+            'is_admin'    => 1,
+            'created_at'  => now(),
+            'updated_at'  => now()
+        ]);
     }
 }

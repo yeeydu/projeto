@@ -25,12 +25,12 @@ class PageController extends Controller
     public function index() // Home
     {
       return view('home');
-      
+
     }
 
     public function slider(){
 
-      $shareComponent = \Share::page('https://diogopinto.pt', 'Fotografia & Video')
+      $shareComponent = \Share::currentPage()
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
@@ -42,11 +42,11 @@ class PageController extends Controller
       return view('index', ['sliders' => $sliders, 'fotografias' => $fotografias, 'testimonials' => $testimonials, 'shareComponent' => $shareComponent]); // Homepage with Carousel
     }
 
-    
+
 
     public function sobre()
     {
-      $shareComponent = \Share::Page('https://diogopinto.pt', 'Sobre')
+      $shareComponent = \Share::currentPage()
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
       ->linkedin('Diogo Pinto')
