@@ -33,6 +33,7 @@
     <div class="container-fluid">
 
         <!--- Fotografias  -->
+        @if($fotografias->isNotEmpty())
         <div class="row mb-5 mt-5 text-center">
             @foreach ($fotografias as $foto)
                 <div class="col-lg-4 col-md-4 col-sm-6 pb-2 ">
@@ -48,6 +49,7 @@
                 </div>
             @endforeach
         </div>
+        @endif
 
         <!--- Pack Card Services -->
         <div class="w-100 p-3" >
@@ -57,8 +59,8 @@
                         @component('components.pack-card',
                             [
                                 'title' => 'Fotografias',
-                                'image' => './img/pack-cards/f-t.jpg',
-                                'url' => 'teste',
+                                'image' => './img/pack-cards/dp1.jpg',
+                                'url' => '/fotografias',
                             ])
                         @endcomponent
                     </div>
@@ -68,7 +70,7 @@
                             [
                                 'title' => 'Filmes',
                                 'image' => './img/pack-cards/l-j.jpg',
-                                'url' => 'teste',
+                                'url' => '/videos',
                             ])
                         @endcomponent
                     </div>
@@ -76,8 +78,8 @@
                         @component('components.pack-card',
                             [
                                 'title' => 'Corporate',
-                                'image' => './img/pack-cards/v-m.jpg',
-                                'url' => 'teste',
+                                'image' => './img/pack-cards/dp.jpg',
+                                'url' => '/corporate',
                             ])
                         @endcomponent
                     </div>
@@ -86,7 +88,7 @@
                             [
                                 'title' => 'Orçamentos',
                                 'image' => './img/pack-cards/l-j2.jpg',
-                                'url' => 'teste',
+                                'url' => '/precos',
                             ])
                         @endcomponent
                     </div>
@@ -96,6 +98,7 @@
 
     @if($testimonials->isNotEmpty())
         <!--- Testimonials  -->
+        @if($testimonials->isNotEmpty())
         <div id="testimonial" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner ">
                 @foreach ($testimonials as $testimonial)

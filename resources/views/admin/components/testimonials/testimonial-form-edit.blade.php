@@ -5,7 +5,7 @@
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="title">Name</label>
+            <label for="title">Nome</label>
             <input type="text" name="name" id="name" required value="{{$testimonial->name}}"
                    class="form-control @error('name') is-invalid @enderror">
             @error('name')
@@ -15,7 +15,7 @@
         </div>
 
         <div class="form-group">
-            <label for="description">Description</label>
+            <label for="description">Descrição</label>
             <textarea rows="14" type="text"  name="description" id="description"
                       class="editor form-control @error('description') is-invalid @enderror"
                       aria-describedby="nameHelp">{{$testimonial->description}}</textarea>

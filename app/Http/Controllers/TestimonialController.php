@@ -111,7 +111,15 @@ class TestimonialController extends Controller
         return redirect('admin/testimonials')->with('status', 'Item deleted successfully');
     }
 
-    
+    public function updateState(Request $request ,Testimonial $testimonial)
+    {
+       //dd($testimonial);
+
+        $testimonial->is_active    = $request->has('is_active');
+        $testimonial->save();
+
+        return redirect('admin/testimonials')->with('status', 'Estado da publicação atualizado com sucesso!');
+    }
 
 
 }

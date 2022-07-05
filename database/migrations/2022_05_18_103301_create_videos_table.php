@@ -21,6 +21,7 @@ class CreateVideosTable extends Migration
           $table->string('url');
             $table->integer('order');
             $table->foreignId('category_id')->constrained();
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
