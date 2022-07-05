@@ -147,6 +147,10 @@ div#social-links p{  /*Text share*/
     transition: transform 400ms;
 }
 
+.pack-card__image > img {
+    transition: all 240ms;
+}
+
 .pack-card__title {
     height: 100%;
     display: flex;
@@ -158,8 +162,9 @@ div#social-links p{  /*Text share*/
     inset: 0 0 0 0;
 }
 
-.pack-card__title h2 {
+.pack-card__title h2, h5 {
     margin: 0;
+    color: rgb(237, 237, 237);
 }
 
 .pack-card__price > .card-body {

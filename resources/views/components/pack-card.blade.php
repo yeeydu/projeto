@@ -3,6 +3,6 @@
         <img src={{ $image }} />
     </div>
     <div class="pack-card__details">
-        <h2 class="pack-card__title">{{ $title }}</h2>
+        <h2 class="pack-card__heading">{{ $title }}</h2>
     </div>
 </div>
