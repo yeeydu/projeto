@@ -29,9 +29,11 @@
             <span class="sr-only">Next</span>
         </button>
     </div>
+    @endif
     <div class="container-fluid">
 
         <!--- Fotografias  -->
+        @if($fotografias->isNotEmpty())
         <div class="row mb-5 mt-5 text-center">
             @foreach ($fotografias as $foto)
                 <div class="col-lg-4 col-md-4 col-sm-6 pb-2 ">
@@ -47,6 +49,7 @@
                 </div>
             @endforeach
         </div>
+        @endif
 
         <!--- Pack Card Services -->
         <div class="w-100 p-3" style="background-color:  ">
@@ -94,6 +97,7 @@
         </div>
 
         <!--- Testimonials  -->
+        @if($testimonials->isNotEmpty())
         <div id="testimonial" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner ">
                 @foreach ($testimonials as $testimonial)
@@ -116,6 +120,7 @@
                 <span class="sr-only">Next</span>
             </button>
         </div>
+        @endif
 
         <!--- Social share -->
         <div class="row">
