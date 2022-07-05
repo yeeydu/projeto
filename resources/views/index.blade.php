@@ -29,6 +29,7 @@
             <span class="sr-only">Next</span>
         </button>
     </div>
+    @endif
     <div class="container-fluid">
 
         <!--- Fotografias  -->
@@ -49,7 +50,7 @@
         </div>
 
         <!--- Pack Card Services -->
-        <div class="w-100 p-3" style="background-color:  ">
+        <div class="w-100 p-3" >
             <div class="container-fluid">
                 <div class="row align-items-stretch">
                     <div class="col-12 col-md-6 col-lg-3">
@@ -93,6 +94,7 @@
             </div>
         </div>
 
+    @if($testimonials->isNotEmpty())
         <!--- Testimonials  -->
         <div id="testimonial" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner ">
@@ -116,6 +118,7 @@
                 <span class="sr-only">Next</span>
             </button>
         </div>
+    @endif
 
         <!--- Social share -->
         <div class="row">
