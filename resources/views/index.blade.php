@@ -52,7 +52,7 @@
         @endif
 
         <!--- Pack Card Services -->
-        <div class="w-100 p-3" style="background-color:  ">
+        <div class="w-100 p-3" >
             <div class="container-fluid">
                 <div class="row align-items-stretch">
                     <div class="col-12 col-md-6 col-lg-3">
