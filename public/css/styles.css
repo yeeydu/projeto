@@ -28,9 +28,11 @@
 /* carousel testimonial */
 #testimonial{
     background-size: cover;
-    background-color: #c5c8caa7;
+    background-color: #c5c8ca5a;
+   /* background-color: #c5c8caa7;*/
     height: 300px;
     min-height: 200px;
+    border-radius: 10px;
 }
 
 #testimonial .carousel-item{

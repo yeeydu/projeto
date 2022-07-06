@@ -1,6 +1,6 @@
 
 <div class="container">
-    <h2>Add Page</h2>
+    <h2>Adicionar Pagina</h2>
     <a href="{{ url('admin/paginas') }}" class="btn btn-primary">Back</a>
     <form method="POST" action="{{url('admin/paginas')}}" enctype="multipart/form-data">
         @csrf
@@ -13,6 +13,7 @@
                 <strong>{{ $message }}</strong>
                 @enderror
         </div>
+
         <div class="form-group">
             <label for="exampleInputPassword1">Description</label>
 

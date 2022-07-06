@@ -36,6 +36,7 @@
                 <thead class="thead-dark">
                     <tr>
                       <!-- <th scope="col">#</th>-->
+                      <th class="sort" scope="col">Nome Pagina <i class="fa-solid fa-arrow-down-a-z"></i></th>  
                         <th class="sort" scope="col">Titulo <i class="fa-solid fa-arrow-down-a-z"></i></th>  
                         <th class="hide-with-media" scope="col">Descrição</th>
                         <th class="hide-with-media" scope="col">Imagem</th>
@@ -47,7 +48,8 @@
                     @foreach($paginas as $pagina)
                         <tr>
                           <!--<th scope="row">{{$pagina->id}}</th>-->
-                            <td class="">{{$pagina->title}}</td>
+                          <td class="">{{$pagina->page_name}}</td>
+                            <td class="">{{$pagina->title}}</td> 
                             <td class="hide-with-media">{!! strip_tags(substr($pagina->description,0, 40)) !!}</td>                            
                             <td class="hide-with-media">
                             @if ($pagina->image)

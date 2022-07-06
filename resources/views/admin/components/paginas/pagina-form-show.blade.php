@@ -1,6 +1,6 @@
 
 <div class="container">
-    <h2>Show Page</h2>
+    <h2>Show - {{$paginas->page_name}}</h2>
     <a href="{{ url('admin/paginas') }}" class="btn btn-primary">Back</a>
       
         <div class="form-group">

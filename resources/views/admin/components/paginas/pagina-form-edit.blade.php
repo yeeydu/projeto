@@ -1,6 +1,6 @@
 
 <div id="media" class="container">
-    <h2>Edit Page</h2>
+    <h2>Editar - {{$pagina->page_name}}</h2>
     <a href="{{ url('admin/paginas') }}" class="btn btn-primary">Back</a>
     <form method="POST" action="{{url('admin/paginas/'. $pagina->id)}}" enctype="multipart/form-data">
          @csrf
