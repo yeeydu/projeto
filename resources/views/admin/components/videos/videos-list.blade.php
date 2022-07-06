@@ -48,7 +48,7 @@
                     <tr class="text-center">
                             <td class=" hide-with-media" >{{$video->order}}</td>
                             <td class="">{{$video->title}}</td>
-                            <td class="hide-with-media">{!! substr($video->description, 0, 40) !!}</td>
+                            <td class="hide-with-media">{!! strip_tags(substr($video->description,0, 40)) !!}</td>
                             <td class="">{{$video->category->title}}</td>
                             <td class="hide-with-media embed"><x-embed url="{{ $video->url }}" /></td>
                             <!---

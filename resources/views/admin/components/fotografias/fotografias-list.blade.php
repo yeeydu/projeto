@@ -49,7 +49,7 @@
                     <tr class="text-center">
                         <td class=" hide-with-media" >{{$foto->order}}</td>
                         <td>{{$foto->title}}</td>
-                        <td class="hide-with-media">{!!substr($foto->description, 0, 40)!!}...</td>
+                        <td class="hide-with-media">{!! strip_tags(substr($foto->description,0, 40)) !!}...</td>
                         <td >{{$foto->category->title}}</td>
                         <td class="hide-with-media" >
                             @if ($foto->image)

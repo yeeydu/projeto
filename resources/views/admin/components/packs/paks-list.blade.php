@@ -49,7 +49,7 @@
                         <td class="hide-with-media" >{{$pack->order}}</td>
                         <td >{{$pack->title}}</td>
                         <td class="hide-with-media">{!!substr($pack->summary, 0, 10).'...' !!}</td>
-                        <td class="hide-with-media">{!!substr($pack->description, 0, 40)!!}...</td>
+                        <td class="hide-with-media">{!! strip_tags(substr($pack->description,0, 40)) !!}...</td>
                         <td class="hide-with-media" >
                             @if ($pack->image)
                                 <img class="img-fluid" src="{{ asset('storage/' . $pack->image) }}" alt="image" style="max-height: 80px">

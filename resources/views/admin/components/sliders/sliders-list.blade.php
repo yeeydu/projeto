@@ -44,7 +44,7 @@
                         <tr>
 
                             <td class=" ">{{$slide->title}}</td>
-                            <td class="hide-with-media">{!! substr($slide->description, 0, 40) !!}</td>   
+                            <td class="hide-with-media">{!! strip_tags(substr($slide->description,0, 40)) !!}</td>   
                             <td class="hide-with-media">
                             @if ($slide->image)
                                 <img class="img-fluid"  src="{{ asset('storage/' . $slide->image) }}"  alt="image" style="max-height: 80px">

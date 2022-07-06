@@ -48,7 +48,7 @@
                         <tr>
                           <!--<th scope="row">{{$pagina->id}}</th>-->
                             <td class="">{{$pagina->title}}</td>
-                            <td class="hide-with-media">{!! substr($pagina->description,0, 50) !!}</td>                            
+                            <td class="hide-with-media">{!! strip_tags(substr($pagina->description,0, 40)) !!}</td>                            
                             <td class="hide-with-media">
                             @if ($pagina->image)
                               <img class="img-fluid" src="{{ asset('storage/' . $pagina->image) }}"alt="image" style="max-height: 80px">

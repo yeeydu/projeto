@@ -79,10 +79,10 @@
     animation: bounce 1.5s infinite;
 }
 
-/* .titleAnimate{
+.titleAnimate{
 
     animation:  colors 4s infinite, bounce 3s infinite;
-} */
+} 
 
 @keyframes bounce {
     from {

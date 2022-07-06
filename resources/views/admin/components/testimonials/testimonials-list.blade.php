@@ -45,7 +45,7 @@
                     <tr>
                         <th class="hide-with-media" >{{$testimonial->id}}</th>
                         <td class=" ">{{$testimonial->name}}</td>
-                        <td class="hide-with-media" >{!! substr($testimonial->description, 0, 40) !!}</td>
+                        <td class="hide-with-media" >{!! strip_tags(substr($testimonial->description,0, 40)) !!}</td>
                         <td>
                             <div class="pr-1 d-lg-inline-flex ">
                                 <a href="{{url('admin/testimonials/' . $testimonial->id)}}" type="button" class="btn btn-outline-success"><i class="fa-solid fa-eye"></i></a>
