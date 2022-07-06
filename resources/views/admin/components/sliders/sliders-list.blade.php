@@ -27,10 +27,10 @@
             </div>
         </div>
 
-        <div class="row ">
-            <div class="col-sm-12">
-                <table class="table">
-                    <thead class="thead-dark">
+        <div class="row">
+        <div class="col-sm-12">
+            <table class="table">
+                <thead class="thead-dark">
                     <tr>
                         <th class="sort" scope="col">Titulo <i class="fa-solid fa-arrow-down-a-z"></i></th>  
                         <th class="hide-with-media" scope="col">Descrição</th>
@@ -43,8 +43,8 @@
                     @foreach($sliders as $slide)
                         <tr>
 
-                            <td class="w-25">{{$slide->title}}</td>
-                            <td class="hide-with-media">{!! substr($slide->description, 0, 50) !!}</td>   
+                            <td class=" ">{{$slide->title}}</td>
+                            <td class="hide-with-media">{!! substr($slide->description, 0, 40) !!}</td>   
                             <td class="hide-with-media">
                             @if ($slide->image)
                                 <img class="img-fluid"  src="{{ asset('storage/' . $slide->image) }}"  alt="image" style="max-height: 80px">
@@ -52,7 +52,7 @@
                               <p>No Image</p>
                               @endif
                             </td>
-                            <td class="w-25">
+                            <td class=" ">
                                 <div class="pr-1 d-lg-inline-flex ">
                                     <a href="{{url('admin/sliders/' . $slide->id)}}" type="button" class="btn btn-outline-success"><i class="fa-solid fa-eye"></i></a>
                                     @auth

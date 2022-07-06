@@ -30,10 +30,10 @@
         </div>
     </div>
 
-        <div class="row ">
-            <div class="col-sm-12">
-                <table class="table">
-                    <thead class="thead-dark">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table">
+                <thead class="thead-dark">
                     <tr>
                       <!-- <th scope="col">#</th>-->
                         <th class="sort" scope="col">Titulo <i class="fa-solid fa-arrow-down-a-z"></i></th>  
@@ -47,7 +47,7 @@
                     @foreach($paginas as $pagina)
                         <tr>
                           <!--<th scope="row">{{$pagina->id}}</th>-->
-                            <td class="w-25">{{$pagina->title}}</td>
+                            <td class="">{{$pagina->title}}</td>
                             <td class="hide-with-media">{!! substr($pagina->description,0, 50) !!}</td>                            
                             <td class="hide-with-media">
                             @if ($pagina->image)
@@ -56,7 +56,7 @@
                               <p>No Image</p>  
                             @endif
                             </td>
-                            <td class="w-25">
+                            <td class="">
                                  <div class="pr-1 d-inline-flex">
                                     <a href="{{url('admin/paginas/' . $pagina->id)}}" type="button" class="btn btn-outline-success"><i class="fa-solid fa-eye"></i></a>
                                     @auth

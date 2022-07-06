@@ -147,7 +147,7 @@ class PageController extends Controller
        return view('pages/politica-de-cookies', [  'pagina' => $pagina, 'shareComponent' => $shareComponent]);
     }
 
-    public function privacidade()   // pagina preços
+    public function privacidade()   // pagina privacidade
     {
       $shareComponent = \Share::page('https://diogopinto.pt/politica-de-privacidade', 'Politica de privacidade')
       ->facebook('Diogo Pinto')
@@ -157,6 +157,18 @@ class PageController extends Controller
 
       $pagina = Pagina::where('title','Politica de privacidade')->where('is_active','1')->first();
        return view('pages/politica-de-privacidade', [  'pagina' => $pagina, 'shareComponent' => $shareComponent]);
+    }
+
+    public function faqs()   // pagina faqs
+    {
+      $shareComponent = \Share::page('https://diogopinto.pt/faqs', 'Frequently Asked Questions')
+      ->facebook('Diogo Pinto')
+      ->twitter('Diogo Pinto')
+      ->linkedin('Diogo Pinto')
+      ->whatsapp('Diogo Pinto');
+
+      $pagina = Pagina::where('title','faqs')->where('is_active','1')->first();
+       return view('pages/faqs', [  'pagina' => $pagina, 'shareComponent' => $shareComponent]);
     }
 
 

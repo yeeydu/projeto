@@ -41,6 +41,7 @@ Route::get('/contactos', 'PageController@contactos')->name('contactos');
 Route::post('/contactos','PageController@contactSubmit')->name('contact.submit');
 Route::get('/politica-de-cookies', 'PageController@cookies')->name('politica-de-cookies');
 Route::get('/politica-de-privacidade', 'PageController@privacidade')->name('politica-de-privacidade');
+Route::get('/faqs', 'PageController@faqs')->name('faqs');
 Route::get('admin/fotografias/query', 'FotografiaController@picsQuery')->name('pic.update-state');
 Route::get('/admin', 'HomeController@index')->name('admin');
 Route::group(['middleware' => 'admin'], function () {

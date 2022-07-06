@@ -21,7 +21,7 @@ class VideoController extends Controller
 
     public function index()
     {
-        $videos = Video::orderBy('id', 'desc')->paginate(10);
+        $videos = Video::orderBy('order', 'asc')->paginate(10);
         return view('admin.pages.videos.index', ['videos' => $videos]);
 
         $category = Category::find($videos->category_id);
@@ -158,30 +158,73 @@ class VideoController extends Controller
             $livCat = $updCat->id;
             return redirect('admin/videos/'.$video->id.'/edit')->withInput()->with('totalCat',$totalCat)->with('updCat',$updCat)->with('livCat',$livCat);
 
-        }else{
+        } 
+        try {
+            $orderExist = Video::where('category_id', $request->category_id)->where('order', $request->order)->first();
 
-            try {
-                $orderExist = Video::where('category_id', $request->category_id)->where('order', $request->order)->first();
 
+            if ($orderExist) {
+                if($video->category_id != $request->category_id){
 
-                if ($orderExist) {
-                    $orderExist->order = $video->order;
-                    $orderExist->save();
+                    $pic = $orderExist;
+                    $newOrder = Video::where('category_id', $request->category_id)->count() + 1;
+                    $pic->update(['order' => $newOrder]);
                     $video->update(['order' => $request->order]);
+                    $video->update($request->except('is_active','order'));
+                   
+                    $video->is_active    = $request->has('is_active');
+                    $video->save();
+
+
+                }else{
+                    $orderExist->order = $video->order;
+
+                    $orderExist->save();
+
+                    $video->update(['order' => $request->order]);
+                    $video->update($request->except('is_active','order'));
+
+                    $video->is_active    = $request->has('is_active');
+                    $video->save();
+
                 }
 
+            }else{
 
-                $video->update($request->except('is_active','order'));
-                $video->is_active    = $request->has('is_active');
-                $video->save();
 
-                return redirect('admin/videos')->with('status', 'Video atualizado com sucesso!');
+            $video->update(['order' => $request->order]);
 
-            }catch (\Exception $exception){
 
-                return redirect('admin/videos/'.$video->id.'/edit')->with('failed', 'Ocorreu um erro! Tente Novamente');
+            $video->update($request->except('is_active','order'));
+
+            $video->is_active    = $request->has('is_active');
+            $video->save();
+
+      
+
             }
-        }
+            $pics = Video::where('category_id',$request->lastCategory)->orderBy('order', 'asc')->get();
+            $count=0;
+            foreach ($pics as $pic){
+
+                if($pic->order -1  != $count){
+
+                    $pic->order = $count+1;
+                    $pic->save();
+
+                }
+                $count++;
+            }
+
+
+
+                    return redirect('admin/videos')->with('status', 'Video atualizado com sucesso!');
+
+            }   catch (\Exception $exception){
+
+                    return redirect('admin/videos/'.$video->id.'/edit')->with('failed', 'Ocorreu um erro! Tente Novamente');
+            }
+       
  
     }
 

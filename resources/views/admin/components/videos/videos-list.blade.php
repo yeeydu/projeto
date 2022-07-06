@@ -24,16 +24,16 @@
         </div>
 
         <div class="row">
-        <div class="col-3">
-            <input class="form-control" id="myFilter" type="text" placeholder="Pesquisa"> <br>
+            <div class="col-3">
+                <input class="form-control" id="myFilter" type="text" placeholder="Pesquisa"> <br>
+            </div>
         </div>
-    </div>
         
         <div class="row ">
-            <div class="col-ms-12 ">
+            <div class="col-sm-12 ">
                 <table class="table">
-                    <thead class="thead-dark">
-                    <tr class="text-center">
+                <thead class="thead-dark">
+                <tr class="text-center">
                     <th class="sort hide-with-media" scope="col">Ordem <i class="fa-solid fa-arrow-down-a-z"></i></th>
                     <th class="sort" scope="col">Titulo<i class="fa-solid fa-arrow-down-a-z"></i></th>
                     <th class="hide-with-media" scope="col">Descrição</th>
@@ -48,12 +48,12 @@
                     <tr class="text-center">
                             <td class=" hide-with-media" >{{$video->order}}</td>
                             <td class="">{{$video->title}}</td>
-                            <td class="hide-with-media">{!! substr($video->description, 0, 50) !!}</td>
+                            <td class="hide-with-media">{!! substr($video->description, 0, 40) !!}</td>
                             <td class="">{{$video->category->title}}</td>
                             <td class="hide-with-media embed"><x-embed url="{{ $video->url }}" /></td>
                             <!---
                             @if ($video->image)
-                            <td><img class="img-thumbnail w-25" src="{{ asset('storage/' . $video->image) }}" alt="image">
+                            <td><img class="img-thumbnail " src="{{ asset('storage/' . $video->image) }}" alt="image">
                               @else
                               <p>No Image</p>  
                             @endif

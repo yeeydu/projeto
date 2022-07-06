@@ -17,7 +17,7 @@
             </div>
         @endif
     <h1>Testemunhos</h1>
-    <div class="row m-2">
+    <div class="row p-3">
         <a href="{{url('admin/testimonials/create') }}" class="btn btn-primary mr-3">Adicionar Testemunho</a>
         <p >Adicione e altere os testemunhos</p>
     </div>
@@ -28,8 +28,8 @@
         </div>
     </div>
 
-    <div class="row ">
-    <div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-12">
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
@@ -44,8 +44,8 @@
                 @foreach($testimonials as $testimonial)
                     <tr>
                         <th class="hide-with-media" >{{$testimonial->id}}</th>
-                        <td class="w-25">{{$testimonial->name}}</td>
-                        <td class="hide-with-media" >{!! substr($testimonial->description, 0, 50) !!}</td>
+                        <td class=" ">{{$testimonial->name}}</td>
+                        <td class="hide-with-media" >{!! substr($testimonial->description, 0, 40) !!}</td>
                         <td>
                             <div class="pr-1 d-lg-inline-flex ">
                                 <a href="{{url('admin/testimonials/' . $testimonial->id)}}" type="button" class="btn btn-outline-success"><i class="fa-solid fa-eye"></i></a>
