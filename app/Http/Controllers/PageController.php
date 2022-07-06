@@ -37,9 +37,9 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      $sliders = Slider::all();
-      $testimonials = Testimonial::all();
-      $fotografias = Fotografia::orderBy('order', 'desc')->paginate(6);
+      $sliders = Slider::where('is_active','1')->get();
+      $testimonials =Testimonial::where('is_active','1')->orderBy('id', 'desc')->paginate(10);
+      $fotografias = Fotografia::where('is_active','1')->orderBy('order', 'desc')->paginate(6);
       return view('index', ['sliders' => $sliders, 'fotografias' => $fotografias, 'testimonials' => $testimonials, 'shareComponent' => $shareComponent]); // Homepage with Carousel
     }
 
@@ -53,7 +53,7 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      $pagina = Pagina::where('title','Sobre')->first();
+      $pagina = Pagina::where('title','Sobre')->where('is_active','1')->first();
       return view('pages/sobre', ['pagina' => $pagina,  'shareComponent' => $shareComponent]); // pagina sobre
     }
 
@@ -66,8 +66,8 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      $pagina = Pagina::where('title','fotografias')->first();
-      $fotografias = Fotografia::orderBy('order', 'asc')->paginate(10);
+      $pagina = Pagina::where('title','fotografias')->where('is_active','1')->first();
+      $fotografias = Fotografia::where('is_active','1')->orderBy('order', 'asc')->paginate(10);
        return view('pages/fotografias', ['fotografias' => $fotografias, 'pagina' => $pagina, 'shareComponent' => $shareComponent]);
     }
 
@@ -81,9 +81,10 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      $pagina = Pagina::where('title','videos')->first();
+      $pagina = Pagina::where('title','videos')->where('is_active','1')->first();
       $videos = Video::select("*")
-      ->where("category_id", 2)  
+      ->where("category_id", 2)
+      ->where('is_active','1')  
       ->orderBy("order", "asc")->get();
 
        return view('pages/videos', ['videos' => $videos, 'pagina' => $pagina, 'shareComponent' => $shareComponent]);
@@ -98,9 +99,10 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      $pagina = Pagina::where('title','corporate')->first();
+      $pagina = Pagina::where('title','corporate')->where('is_active','1')->first();
       $videos = Video::select("*")
       ->where("category_id", 5)
+      ->where('is_active','1')
       ->orderBy("order", "asc")->get();
 
        return view('pages/corporate', ['videos' => $videos, 'pagina' => $pagina, 'shareComponent' => $shareComponent]);
@@ -114,7 +116,7 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      $pagina = Pagina::where('title','precos')->first();
+      $pagina = Pagina::where('title','precos')->where('is_active','1')->first();
       $packs =Pack::where('is_active','1')->orderBy('order', 'asc')->paginate(10);
        return view('pages/precos', [ 'pagina' => $pagina, 'shareComponent' => $shareComponent, 'packs' => $packs]);
     }
@@ -141,7 +143,7 @@ class PageController extends Controller
       ->whatsapp('Diogo Pinto');
 
 
-      $pagina = Pagina::where('title','politica de cookies')->first();
+      $pagina = Pagina::where('title','politica de cookies')->where('is_active','1')->first();
        return view('pages/politica-de-cookies', [  'pagina' => $pagina, 'shareComponent' => $shareComponent]);
     }
 
@@ -153,7 +155,7 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      $pagina = Pagina::where('title','Politica de privacidade')->first();
+      $pagina = Pagina::where('title','Politica de privacidade')->where('is_active','1')->first();
        return view('pages/politica-de-privacidade', [  'pagina' => $pagina, 'shareComponent' => $shareComponent]);
     }
 
@@ -166,7 +168,7 @@ class PageController extends Controller
       ->linkedin('Diogo Pinto')
       ->whatsapp('Diogo Pinto');
 
-      $pagina = Pagina::where('title','contactos')->first();
+      $pagina = Pagina::where('title','contactos')->where('is_active','1')->first();
 
        return view('pages/contactos',  ['pagina' => $pagina, 'shareComponent' => $shareComponent]);
 

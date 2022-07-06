@@ -1,85 +1,49 @@
-
-<div class="container">
-    <h2>Show Video</h2>
-    <a href="{{ url('admin/videos') }}" class="btn btn-primary">Back</a>
-      
-        <div class="form-group">
-            <label for="exampleInputPassword1">Title</label>
-            <input type="text"  name="title" id="title" autocomplete="title" value="{{$video->title}}"
-            class="form-control @error('title')
-                    is-invalid
-                @enderror"
-            value="{{ old('title') }}" required aria-describedby="nameHelp">
-            @error('title')  <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-            @enderror
+<div id="media" class="col-lg-12 col-lg-offset-2 mx-auto">
+    <div class="row">
+        <div class="col">
+            <h2>{{$video->title}}</h2>
+            <a href="{{ url('admin/videos') }}" class="btn btn-primary">Voltar</a>
         </div>
+    </div>
+
+    <form>
+        @csrf
         <div class="form-group">
-            <label for="exampleInputPassword1">Description</label>
-            <textarea rows="14" type="text"  name="description" id="description" autocomplete="description" placeholder="description" value="{{$video->description}}"
-            class="form-control @error('description')
-                    is-invalid
-                @enderror"
-            value="{{ old('description') }}" required aria-describedby="nameHelp">{{$video->description}}</textarea>
-            @error('description')  <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-            @enderror
+            <label for="title">Título</label>
+            <input type="text" name="title" id="title" autocomplete="title" class="form-control" disabled value="{{$video->title}}">
         </div>
 
-        <div class="row"> 
-        <div class="col"> 
-            <div class="form-group">
-                <div class="input-group-prepend">
-                    <label  for="PlayerSelect">Category</label>
+        <span>Descrição</span>
+        <div class="show-style">
+            {!!$video->description!!}
+        </div>
+
+        <div class="row mt-3 mb-3">
+            <div class="col 6 ">
+                <span>Posição (ordem)</span>
+                <div class="show-style">
+                    {!!$video->order!!}
                 </div>
-                <select  id="CategoriaSelect" name="category_id"
-                class="form-control @error('category_id')
-                    is-invalid
-                @enderror" 
-                value="category->title">
-                <option  >{{$video-> category->title}}</option>
-                  
-                </select>
-                @error('category_id')  <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-            @enderror
             </div>
-       </div>
-            <div class="col"> 
-                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Position (order)</label>
-                    <select class="form-control" id="exampleFormControlSelect1" name="order" value="video->order">
-                        <option>{{$video-> order}}</option>
-                    </select>
+            <div class="col 6 ">
+                <span>Categoria</span>
+                <div class="show-style">
+                    {!!$video-> category->title!!}
                 </div>
-            </div>     
+
+            </div>
         </div>
+
         <div class="form-group">
-            <label for="exampleInputPassword1">Link</label>
-            <input type="text" name="url" id="url" autocomplete="url" placeholder="Type url" class="form-control @error('url')
-                    is-invalid
-                @enderror" value=" {{ $video->url }}" required aria-describedby="nameHelp">
-            @error('url') <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-                @enderror
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" disabled switch="bool" @if ($video->is_active ==true) checked @endif value="{{$video->is_active}}">
+                <label class="custom-control-label" for="is_active">@if ($video->is_active ==true) Item Publicado @else Item Não Publicado @endif</label>
+            </div>
         </div>
+
         <div class="pb-3 w-50">
             <x-embed url="{{ $video->url }}" />
         </div>
-        <!---
-        <label for="exampleInputPassword1">Image</label>
-        <div class="w-50 "> -----
-             @if ($video->image)
-                <img class="w-50 img-thumbnail" src="{{ asset('storage/' . $video->image) }}" alt="image"></td>
-             @else
-                <p>No Image</p>  
-            @endif
-        </div> ----->
-        <div>
-            <span class="invalid-feedback" role="alert"></span>
-        </div>
+
     </form>
 </div>
-
-
-

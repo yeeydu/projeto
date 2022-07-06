@@ -14,16 +14,9 @@
             <strong>{{ $message }}</strong>
             @enderror
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Description</label>
-            <textarea rows="6" type="text"  name="description" id="description" autocomplete="description" placeholder="description" value="{{$slider->description}}"
-            class="form-control @error('description')
-                    is-invalid
-                @enderror"
-            value="{{ old('description') }}" required aria-describedby="nameHelp">{{$slider->description}}</textarea>
-            @error('description')  <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-            @enderror
+        <span>Description</span>
+        <div class="show-style">
+                {!!$slider->description!!}
         </div>
 
         <label for="exampleInputPassword1">Image</label>

@@ -137,5 +137,17 @@ PaginaController extends Controller
 
         return redirect('admin/paginas')->with('status', 'Item deleted successfully');
     }
+
+    public function updateState(Request $request ,Pagina $pagina)
+    {
+       //dd($testimonial);
+
+        $pagina->is_active    = $request->has('is_active');
+        $pagina->save();
+
+        return redirect('admin/paginas')->with('status', 'Estado da publicação atualizado com sucesso!');
+    }
+
+
 }
 

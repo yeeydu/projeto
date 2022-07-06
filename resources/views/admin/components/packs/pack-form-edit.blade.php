@@ -15,7 +15,7 @@
         <div class="form-group">
             <label for="title">Nome do Pack</label>
             <input type="text" name="title" id="title" required value="{{$pack->title}}"
-                   class="form-control @error('title') is-invalid @enderror"
+                   class="form-control @error('title') is-invalid @enderror">
 
             @error('title')
             <span class="invalid-feedback" role="alert">

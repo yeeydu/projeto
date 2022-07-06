@@ -132,4 +132,15 @@ class SliderController extends Controller
  
         return redirect('admin/ ')->with('status', 'Item deleted successfully');
     }
+
+    public function updateState(Request $request ,Slider $slider)
+    {
+       
+        $slider->is_active    = $request->has('is_active');
+        $slider->save();
+
+        return redirect('admin/')->with('status', 'Estado da publicação atualizado com sucesso!');
+    }
+
+
 }

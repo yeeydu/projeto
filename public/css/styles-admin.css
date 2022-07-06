@@ -384,3 +384,6 @@ a[href*="#settings"]::before {
 }
 
 
+.embed{
+    width: 150px;
+}

@@ -9,18 +9,18 @@
     @endif
     <h2>EDITAR FOTO</h2>
     <a href="{{ url('admin/fotografias') }}" class="btn btn-primary">Voltar</a>
-        <h1>{{session('totalCat',-1)}}</h1>
-        <h1>{{$fotografia->category->id}}</h1>
+     <!--   <h1>{{session('totalCat',-1)}}</h1>
+        <h1>{{$fotografia->category->id}}</h1> -->
     <form id="picEdit" method="POST" action="{{url('admin/fotografias/'. $fotografia->id)}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
             <label for="title">Título</label>
             <input type="text" name="title" id="title" required value="{{old('title',$fotografia->title ) }}"
-                   class="form-control @error('title') is-invalid @enderror"
+                   class="form-control @error('title') is-invalid @enderror">
 
             @error('title')
-            <span class="invalid-feedback" role="alert">
+          class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             @enderror
         </div>

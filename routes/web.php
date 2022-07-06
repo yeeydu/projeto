@@ -28,7 +28,7 @@ Route::get('/teste/{email}', function (Request $request) {
 
     // ...
 })->name('teste');
-//
+/// ...Front-end Pages
 Auth::routes();
 Route::get('/', 'PageController@slider')->name('slider');
 Route::get('/sobre', 'PageController@sobre')->name('sobre');
@@ -45,12 +45,16 @@ Route::get('admin/fotografias/query', 'FotografiaController@picsQuery')->name('p
 Route::get('/admin', 'HomeController@index')->name('admin');
 Route::group(['middleware' => 'admin'], function () {
 
-
+    // ...Paginas Site
     Route::resource('admin/paginas', 'PaginaController');
+    Route::put('admin/paginas/update/{pagina}', 'PaginaController@updateState')->name('paginas.update-state');
+    // ...Fotografias
     Route::resource('admin/fotografias', 'FotografiaController');
     Route::put('admin/fotografias/update/{pic}', 'FotografiaController@updateState')->name('pic.update-state');
+    // ...Videos
     Route::resource('admin/videos', 'VideoController');
-
+    Route::put('admin/videos/update/{video}', 'VideoController@updateState')->name('video.update-state');
+    // ...Testemonials
     Route::resource('admin/testimonials', 'TestimonialController');
     Route::put('admin/testimonials/update/{testimonial}', 'TestimonialController@updateState')->name('testimonials.update-state');
 
@@ -71,8 +75,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/extras','ExtraController@index')->name('extras.index');
 
     Route::get('admin/custom-price','CustomPriceController@index')->name('custom-price.index');
-
+    // ...Sliders
     Route::resource('admin/sliders', 'SliderController');
+    Route::put('admin/sliders/update/{slider}', 'SliderController@updateState')->name('slider.update-state');
     Route::get('admin/', 'SliderController@index');
 
 });
