@@ -45,7 +45,8 @@ Route::get('/politica-de-privacidade', 'PageController@privacidade')->name('poli
 Route::get('/faqs', 'PageController@faqs')->name('faqs');
 Route::get('admin/fotografias/query', 'FotografiaController@picsQuery')->name('pic.update-state');
 Route::get('/admin', 'HomeController@index')->name('admin');
-Route::group(['middleware' => 'admin'], function () {
+
+Route::group([ 'middleware' => 'admin'], function () {
 
     // ...Paginas Site
     Route::resource('admin/paginas', 'PaginaController');
@@ -85,7 +86,7 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/custom-price','CustomPriceController@index')->name('custom-price.index');
     // ...Sliders
-    Route::resource('admin/sliders', 'SliderController');
+    Route::resource('admin/sliders', 'SliderController')->middleware('optimizeImages');
     Route::put('admin/sliders/update/{slider}', 'SliderController@updateState')->name('slider.update-state');
     Route::get('admin/', 'SliderController@index');
 
