@@ -11,6 +11,6 @@ class ExtraSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

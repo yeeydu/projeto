@@ -139,7 +139,8 @@ $(document).ready(function () {
         $("#category_change_create").val(categoryChange);
         if( $("#create_pic").val() == 1){
             $("#picCreate").submit();
-        }else{
+        }
+        else{
             $("#picEdit").submit();
         }
 
@@ -152,10 +153,53 @@ $(document).ready(function () {
 
         }
     )
+// Function to update pack price with extras
+        var total = 0;
+
+    $('input:checkbox').change(function ()
+    {
+        var totalExtra = 0;
+        var packPrice = isNaN(parseFloat($("#packValue").val())) ? 0 : parseFloat($("#packValue").val());
+        $('input:checkbox:checked').each(function(){ // iterate through each checked element.
+            //console.log(JSON.parse($(this).val()).price);
+            totalExtra += isNaN(parseFloat(JSON.parse($(this).val()).price)) ? 0 : parseFloat(JSON.parse($(this).val()).price);
+
+        });
+
+        total = totalExtra + packPrice;
+        $("#total_sum_value").html(total);
+        $("#total_price").val(total);
+
+    });
+//-------------//
+
+    /* date check*/
+    var today = new Date().toLocaleDateString()
+    var dateErro = 0;
+    $("#datePic").change(function ()
+        {
+            var dateChoose = new Date($("#datePic").val()).toLocaleDateString();
+            if (dateChoose < today){
+                $("#errorDate").html('Data inválida!');
+                dateErro = 1;
+            }
+            console.log(dateErro);
+        }
+
+    )
+
+
 
     //
 
 });
+
+
+
+
+/*if (selectedDate < today) {
+    $("#errorDate").html('Selecione uma data futura');
+}*/
 
 
 

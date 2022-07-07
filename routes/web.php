@@ -39,6 +39,7 @@ Route::get('/precos', 'PageController@precos')->name('precos');
 Route::get('/precos/{pack}', 'PageController@packShow')->name('user-pack-show');
 Route::get('/contactos', 'PageController@contactos')->name('contactos');
 Route::post('/contactos','PageController@contactSubmit')->name('contact.submit');
+Route::post('/pack/submit','PageController@packSumbit')->name('pack.submit');
 Route::get('/politica-de-cookies', 'PageController@cookies')->name('politica-de-cookies');
 Route::get('/politica-de-privacidade', 'PageController@privacidade')->name('politica-de-privacidade');
 Route::get('admin/fotografias/query', 'FotografiaController@picsQuery')->name('pic.update-state');
@@ -69,6 +70,13 @@ Route::group(['middleware' => 'admin'], function () {
 
 
     Route::get('admin/extras','ExtraController@index')->name('extras.index');
+    Route::post('admin/extras/store','ExtraController@store')->name('extra.store');
+    Route::get('admin/extras/create', 'ExtraController@create')->name('extras.create');
+    Route::get('admin/extras/{extra}', 'ExtraController@show')->name('extra.show');
+    Route::get('admin/extras/{extra}/edit', 'ExtraController@edit')->name('extra.edit');
+    Route::put('admin/extras/{extra}', 'ExtraController@update')->name('extra.update');
+    Route::delete('admin/extras/{extra}', 'ExtraController@destroy')->name('extra.destroy');
+    Route::put('admin/extras/update/{extra}', 'ExtraController@updateState')->name('extra.update-state');
 
     Route::get('admin/custom-price','CustomPriceController@index')->name('custom-price.index');
 

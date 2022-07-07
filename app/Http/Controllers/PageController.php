@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Extra;
 use App\Mail\NewMail;
 use App\Pack;
 use App\Page;
@@ -83,7 +84,7 @@ class PageController extends Controller
 
       $pagina = Pagina::where('title','videos')->first();
       $videos = Video::select("*")
-      ->where("category_id", 2)  
+      ->where("category_id", 2)
       ->orderBy("order", "asc")->get();
 
        return view('pages/videos', ['videos' => $videos, 'pagina' => $pagina, 'shareComponent' => $shareComponent]);
@@ -115,7 +116,7 @@ class PageController extends Controller
       ->whatsapp('Diogo Pinto');
 
       $pagina = Pagina::where('title','precos')->first();
-      $packs =Pack::where('is_active','1')->orderBy('order', 'asc')->paginate(10);
+      $packs = Pack::where('is_active','1')->orderBy('order', 'asc')->paginate(10);
        return view('pages/precos', [ 'pagina' => $pagina, 'shareComponent' => $shareComponent, 'packs' => $packs]);
     }
 
@@ -128,7 +129,8 @@ class PageController extends Controller
       ->whatsapp('Diogo Pinto');
 
         $pagina = Pagina::where('title','precos')->first();
-        return view('pages/pack-show', [ 'pagina' => $pagina, 'pack' => $pack]);
+        $extras = Extra::where('is_active','1')->orderBy('order', 'asc')->get();
+        return view('pages/pack-show', [ 'pagina' => $pagina, 'pack' => $pack, 'extras' => $extras]);
     }
 
 
@@ -190,16 +192,72 @@ class PageController extends Controller
             'msg'               => 'Deixe-nos a sua menssagem para o podermos esclarecer'
         ]);
 
-        $data = array(
+        $data = [
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'msg' => $request->msg
 
-        );
+        ];
+
+//auth()->user()->email
         $subject = 'Pedido de Contacto';
-        Mail::to('andreteixeira.csn@gmail.com')->send(new NewMail($data,$subject));
+        $viewSend = 'emails.contact-mail';
+        Mail::to('andreteixeira.csn@gmail.com')->send(new NewMail($data,$subject,$viewSend));
         return back()->with('success', 'Email enviado com sucesso! Entraremos em contacto em breve!');
 
+    }
+
+    public function packSumbit(Request $request){
+        $this->validate($request, [
+            'name'  => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|digits:9',
+            'msg'   => 'required',
+            'date'  => 'required|after:yesterday'
+        ],
+
+            [
+                'name.required'     => 'O nome é de preenchimento obrigatório',
+                'email.required'    => 'O email é de preechimento obrigatório',
+                'email.email'       => 'Introduza um email válido',
+                'phone.required'    => 'O número de telefone é de preechimento obrigatório',
+                'phone.digits'      => 'Introduza um número de telefone válido',
+                'msg'               => 'Deixe-nos a sua menssagem para o podermos esclarecer',
+                'date.required'     => 'Data do evento obrigatória',
+                'date.after'        => 'Data do evento téra que ser posterior'
+            ]);
+
+    if($request->extra){
+        $i = 0;
+        $arr = [];
+        foreach ($request->extra as $extraInfo){
+            $extras = json_decode($extraInfo);
+            $arr [$i] = [
+                'name' => $extras->name,
+                'price' => $extras->price
+            ];
+            $i++;
+        }
+    }else{
+        $arr = 'Nenhum';
+    }
+
+        $data = [
+            'name'          => $request->name,
+            'email'         => $request->email,
+            'phone'         => $request->phone,
+            'msg'           => $request->msg,
+            'deventDate'    => $request->date,
+            'packName'      =>$request->packName,
+            'total_price'   =>$request->total_price,
+            'extras'        =>$arr
+        ];
+        //return view('emails.pack-info-mail')->with('data',$data);
+
+        $subject = 'Pedido de Orçamento - '.$request->packName;
+        $viewSend = 'emails.pack-info-mail';
+        Mail::to('andreteixeira.csn@gmail.com')->send(new NewMail($data,$subject,$viewSend));
+        return back()->with('success', 'Email enviado com sucesso! Entraremos em contacto em breve!');
     }
 }

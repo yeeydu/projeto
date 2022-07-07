@@ -16,8 +16,9 @@ class CreateExtrasTable extends Migration
         Schema::create('extras', function (Blueprint $table) {
             $table->id();
             $table->text('name');
+            $table->text('description')->nullable();
             $table->float('price',8,2);
-            $table->text('price_description');
+            $table->text('price_description')->nullable();
             $table->integer('order');
             $table->boolean('is_active')->default(0);
             $table->timestamps();

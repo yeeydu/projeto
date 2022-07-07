@@ -2,21 +2,14 @@
 @section('content')
 <section class="container-fluid">
     @if($pagina != null)
-   
+
         <div class="row text-center pb-5  " >
             <div class="col col-md-12 col-lg-12 col-sm-12 col-xs-12 pt-4" id="page-image" style="background-image: url('{{ asset('storage/' . $pagina->image) }}'); ">
                <h1 class="mt-5 pt-5 titleAnimate" >{{$pagina->title}}</h1>
-            </div> 
-        </div>
-</section> 
-<div class="container">
-        <div class="row justify-content-center">
-            <div class="col col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                <p>
-
-                </p>
             </div>
         </div>
+</section>
+
         @endif
         @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -26,23 +19,16 @@
                 </button>
             </div>
         @endif
-            @if (session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
-            <div class="row justify-content-center">
-                <div class="col col-md-10 col-lg-8 style contact">
+    <div class="container pack-show">
+            <div class="row justify-content-center mt-1">
+                <div class="col col-md-10 col-lg-8">
                     <h3 class="text-center mb-3 contactTitle">Contacte-nos</h3>
                     <form method="post" enctype="multipart/form-data" action="{{route('contact.submit')}}">
                         @csrf
                         @method('POST')
                         <div class="form-group">
                             <label for="name" id="name" class="form-label">Nome</label>
-                            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Escreva o seu nome" required>
+                            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Escreva o seu nome" required value="{{ old('name') }}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -51,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email" id="email" class="form-label">Email</label>
-                            <input type="email" name="email" id="email" class="form-control  @error('email') is-invalid @enderror" placeholder="Insira o seu email" required>
+                            <input type="email" name="email" id="email" class="form-control  @error('email') is-invalid @enderror" placeholder="Insira o seu email" required value="{{ old('email') }}">
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -60,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phone" id="phone" class="form-label">Nº Telemóvel</label>
-                            <input type="number" name="phone" id="phone" class="form-control  @error('phone') is-invalid @enderror" placeholder="Número de telemóvel" required>
+                            <input type="number" name="phone" id="phone" class="form-control  @error('phone') is-invalid @enderror" placeholder="Número de telemóvel" required value="{{ old('phone') }}">
                             @error('phone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -69,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <label for="msg" id="msg" class="form-label">Menssagem</label>
-                            <textarea name="msg" id="msg" class="form-control  @error('msg') is-invalid @enderror" placeholder="Deixe nos a sua menssagem!" required></textarea>
+                            <textarea name="msg" id="msg" class="form-control  @error('msg') is-invalid @enderror" placeholder="Deixe nos a sua menssagem!" required value="{{ old('msg') }}">{{ old('msg') }}</textarea>
                             @error('msg')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -86,6 +72,7 @@
 
                 </div>
             </div>
+    </div>
             <div class="row justify-content-center mt-5">
                 <div class="col-12 col-lg-8">
                     <iframe
@@ -95,7 +82,7 @@
                 </div>
                 @if($pagina != null)
                 <div class="col-12 col-lg-4 my-4">
-                
+
                     {!! $pagina->description !!}
                 </div>
                 @endif

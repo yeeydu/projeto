@@ -1,8 +1,9 @@
 @extends('admin.master.main')
 @section('content')
 
+    @component('admin.components.extras.extras-list', ['extras' => $extras])
 
-    <H1>EXTRAS</H1>
+    @endcomponent
 
 
 @endsection

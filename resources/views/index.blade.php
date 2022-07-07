@@ -98,7 +98,6 @@
 
     @if($testimonials->isNotEmpty())
         <!--- Testimonials  -->
-        @if($testimonials->isNotEmpty())
         <div id="testimonial" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner ">
                 @foreach ($testimonials as $testimonial)

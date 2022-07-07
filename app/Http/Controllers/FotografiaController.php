@@ -158,21 +158,58 @@ class FotografiaController extends Controller
             $livCat = $updCat->id;
             return redirect('admin/fotografias/'.$fotografia->id.'/edit')->withInput()->with('totalCat',$totalCat)->with('updCat',$updCat)->with('livCat',$livCat);
 
-        }else{
+        }
 
         try {
             $orderExist = Fotografia::where('category_id', $request->category_id)->where('order', $request->order)->first();
 
 
             if ($orderExist) {
+                if($fotografia->category_id != $request->category_id){
 
-                $orderExist->order = $fotografia->order;
+                    $pic = $orderExist;
+                    $newOrder = Fotografia::where('category_id', $request->category_id)->count() + 1;
+                    $pic->update(['order' => $newOrder]);
+                    $fotografia->update(['order' => $request->order]);
+                    $fotografia->update($request->except('image','is_active','order'));
 
-                $orderExist->save();
+                    $fotografia->is_active    = $request->has('is_active');
+                    $fotografia->save();
 
-                $fotografia->update(['order' => $request->order]);
+                    if($request->hasfile('image')){
+                        Storage::deleteDirectory('public/images/fotografias/' . $fotografia->id);
+                        $imagePath = $request->file('image');
+                        $imageName = $fotografia->id . '_' . $fotografia->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
+                        $path = $request->file('image')->storeAs('images/fotografias/' . $fotografia->id, $imageName, 'public');
+                        $fotografia->image = $path;
+                        $fotografia->save();
+                    }
 
-            }
+                }else{
+                    $orderExist->order = $fotografia->order;
+
+                    $orderExist->save();
+
+                    $fotografia->update(['order' => $request->order]);
+                    $fotografia->update($request->except('image','is_active','order'));
+
+                    $fotografia->is_active    = $request->has('is_active');
+                    $fotografia->save();
+
+                    if($request->hasfile('image')){
+                        Storage::deleteDirectory('public/images/fotografias/' . $fotografia->id);
+                        $imagePath = $request->file('image');
+                        $imageName = $fotografia->id . '_' . $fotografia->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
+                        $path = $request->file('image')->storeAs('images/fotografias/' . $fotografia->id, $imageName, 'public');
+                        $fotografia->image = $path;
+                        $fotografia->save();
+                    }
+                }
+
+            }else{
+
+
+            $fotografia->update(['order' => $request->order]);
 
 
             $fotografia->update($request->except('image','is_active','order'));
@@ -189,11 +226,23 @@ class FotografiaController extends Controller
                 $fotografia->save();
             }
 
+            }
+            $pics = Fotografia::where('category_id',$request->lastCategory)->orderBy('order', 'asc')->get();
+            $count=0;
+            foreach ($pics as $pic){
+
+                if($pic->order -1  != $count){
+
+                    $pic->order = $count+1;
+                    $pic->save();
+
+                }
+                $count++;
+            }
 
             return redirect('admin/fotografias')->with('status', 'Fotografia atualizada com sucesso!');
         }catch (\Exception $exception){
             return redirect('admin/fotografias/'.$fotografia->id.'/edit')->with('failed', 'Ocorreu um erro! Tente Novamente');
-        }
         }
 
     }

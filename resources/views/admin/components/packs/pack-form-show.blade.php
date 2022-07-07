@@ -34,6 +34,8 @@
             <label for="price">Preço do Pack</label>
             <input type="number" step="0.01" name="price" id="price" autocomplete="price" class="form-control" disabled value="{{$pack->price}}">
         </div>
+
+
         <div class="form-group">
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" disabled switch="bool" @if ($pack->is_active ==true) checked @endif value="{{$pack->is_active}}">

@@ -13,15 +13,17 @@ class NewMail extends Mailable
 
     public $data;
     public $subject;
+    public $viewtoSend;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data,$subject)
+    public function __construct($data,$subject, $viewtoSend)
     {
-        $this-> data = $data;
-        $this-> subject = $subject;
+        $this-> data        = $data;
+        $this-> subject     = $subject;
+        $this-> viewtoSend  = $viewtoSend;
     }
 
     /**
@@ -31,6 +33,6 @@ class NewMail extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->subject)->view('emails.contact-mail')->with('data', $this->data);
+        return $this->subject($this->subject)->view($this->viewtoSend)->with('data', $this->data);
     }
 }
