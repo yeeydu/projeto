@@ -132,7 +132,7 @@ class PageController extends Controller
 
         $pagina = Pagina::where('page_name','precos')->first();
         $extras = Extra::where('is_active','1')->orderBy('order', 'asc')->get();
-        return view('pages/pack-show', [ 'pagina' => $pagina, 'pack' => $pack, 'extras' => $extras]);
+        return view('pages/pack-show', [ 'pagina' => $pagina, 'pack' => $pack, 'extras' => $extras, 'shareComponent' => $shareComponent]);
         
     }
 

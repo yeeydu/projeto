@@ -15,9 +15,9 @@
                 </div>
             </div>
     </section>
-<div class="container pack-show">
+<div class="container pack-show mb-4">
 
-    <div class="row justify-content-center mt-1 mb-3">
+    <div class="row justify-content-center mt-1 mb-4">
         <div class="col col-md-10 col-lg-8 ">
             <h1 class="titlePackUL text-center">{{$pack->title}}</h1>
         </div>
@@ -130,7 +130,13 @@
 
         </div>
     </div>
-
 </div>
+    <!--- Social share -->
+    <div class="row ml-5 pl-5">
+           <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
+               <p>Share the love</p>
+               {!! $shareComponent !!}
+           </div>
+       </div>
 
 @endsection

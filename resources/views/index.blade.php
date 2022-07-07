@@ -53,8 +53,8 @@
         @endif
 
         <!--- Pack Card Services -->
-        <div class="w-100 p-3 pack-card__service">
-            <div class="container-fluid">
+        <div class="container-fluid mx-auto px-auto my-3 py-3">
+            <div class="w-100 p-3 pack-card__service">
                 <div class="row align-items-stretch">
                     <div class="col-12 col-md-6 col-lg-3">
                         @component('components.pack-card',
@@ -124,8 +124,8 @@
         @endif
 
         <!--- Social share -->
-        <div class="row">
-            <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-lg-4 col-xl-4 text-center" id="social-links">
                 <p>Share the love</p>
                 {!! $shareComponent !!}
             </div>

@@ -12,7 +12,7 @@
     </section>
     <div class="container-fluid">
         @if ($pagina != null)
-            <div class="row justify-content-center">
+            <div class="row text-center mb-4 pb-4">
                 <div class="col col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <p>
                         {!! $pagina->description !!}
@@ -22,7 +22,7 @@
         @endif
 
         <!-- Pack Cards Price -->
-        <div class="row align-items-stretch">
+        <div class="row align-items-stretch mb-4 mx-auto">
             @foreach($packs as $pack)
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card pack-card__price">
@@ -43,12 +43,12 @@
             </div>
             @endforeach
         </div>
+    </div>
          <!--- Social share -->
-        <div class="row">
+        <div class="row m-4">
             <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
                 <p>Share the love</p>
                 {!! $shareComponent !!}
             </div>
         </div>
-    </div>
 @endsection

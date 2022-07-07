@@ -1,5 +1,8 @@
 .pack-card__service {
     margin: 74px 0px 82px 0px;
+    background-image: linear-gradient(to right, #fff2f4 , #f8f8fe94);  
+    padding: 100px 0px 100px 0px;
+    border-radius: 10px;
 }
 
 .pack-card {
@@ -36,6 +39,7 @@
         width: 100%;
         object-fit: fill;
         height: 320px;
+        object-fit: cover;
         opacity: 0.9;
     }
 }

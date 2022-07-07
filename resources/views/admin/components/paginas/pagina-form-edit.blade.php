@@ -6,7 +6,7 @@
          @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="exampleInputPassword1">Title</label>
+            <label for="exampleInputPassword1">Titulo</label>
             <input type="text" name="title" id="title" autocomplete="title" placeholder="Type title" class="form-control @error('title')
                     is-invalid
                 @enderror" value="{{ $pagina->title }}" required aria-describedby="nameHelp">
@@ -15,7 +15,7 @@
                 @enderror
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Description</label>
+            <label for="exampleInputPassword1">Descrição</label>
             <textarea rows="14" type="text"  name="description" id="description" autocomplete="description" placeholder="Type your description"
             class="editor form-control @error('description')
                     is-invalid
@@ -27,7 +27,7 @@
         </div>
 
              <div class="form-group"> <!-----image----->
-                <label for="exampleInputPassword1">Image</label>
+                <label for="exampleInputPassword1">Imagem</label>
                 <!---- filenames[]----->
                 <input type="file"  name="image" id="image"
                 class="form-control @error('name')
