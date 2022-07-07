@@ -21,15 +21,15 @@
             </div>
         @endif
 
-        <!-- Exemplo cards -->
+        <!-- Pack Cards Price -->
         <div class="row align-items-stretch">
             @foreach($packs as $pack)
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card pack-card__price">
                     @if ($pack->image)
-                    <img src="{{ asset('storage/' . $pack->image) }}"
-                        class="pack-card__image" alt="...">
+                    <img src="{{ asset('storage/' . $pack->image) }}" class="pack-card__price-image pack-card__image" alt="Pack Filme">
                     @endif
+                    
                     <div class="pack-card__title">
                         <h2 class="card-title">{{$pack->title}}</h2>
                     </div>

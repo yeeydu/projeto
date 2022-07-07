@@ -1,72 +1,115 @@
-
-<div class="container">
-    <h2>Edit video</h2>
-    <a href="{{ url('admin/videos') }}" class="btn btn-primary">Back</a>
-    <form method="POST" action="{{url('admin/videos/'. $video->id)}}" enctype="multipart/form-data">
-         @csrf
+<div id="media" class="col-lg-12 col-lg-offset-2 mx-auto">
+    @if (session('failed'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('failed') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    <h2>EDITAR VIDEO</h2>
+    <a href="{{ url('admin/videos') }}" class="btn btn-primary">Voltar</a>
+  
+    <form id="videoEdit" method="POST" action="{{url('admin/videos/'. $video->id)}}" enctype="multipart/form-data">
+        @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="exampleInputPassword1">Title</label>
-            <input type="text" name="title" id="title" autocomplete="title" placeholder="Type title" class="form-control @error('title')
-                    is-invalid
-                @enderror" value="{{ $video->title }}" required aria-describedby="nameHelp">
-            @error('title') <span class="invalid-feedback" role="alert">
+            <label for="title">Título</label>
+            <input type="text" name="title" id="title" required value="{{old('title',$video->title) }}"
+                   class="form-control @error('title') is-invalid @enderror">
+
+            @error('title')
+          class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
-                @enderror
+            @enderror
         </div>
+
         <div class="form-group">
-            <label for="exampleInputPassword1">Description</label>
-            <textarea rows="14" type="text"  name="description" id="description" autocomplete="description" placeholder="Type your description"
-            class="editor form-control @error('description')
-                    is-invalid
-                @enderror"
-            value="{{ $video->description }}"  aria-describedby="nameHelp">{{ $video->description }}</textarea>
-            @error('description')  <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
+            <label for="description">Descrição</label>
+            <textarea rows="14" type="text"  name="description" id="description"
+                      class="editor form-control @error('description') is-invalid @enderror"
+                      aria-describedby="nameHelp">{{old('description',$video->description) }}</textarea>
+            @error('description')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{$message}}</strong>
             @enderror
         </div>
-        <div class="row">
-        <div class="col">
-            <div class="form-group">
-                <div class="input-group-prepend">
-                    <label  for="PlayerSelect">Category</label>
+
+        <div class="row mt-3 mb-3">
+            <div class="col 6" >
+                <div class="form-group">
+                    <label for="order">Posição (ordem)</label>
+                    <select class="form-control @error('order') is-invalid @enderror" id="order" name="order" required >
+
+                        @if(session('totalCat',-1) != -1)
+                            @if(session('totalCat',-1) == 0)
+                                <option>1</option>
+                            @else
+                            @foreach($videos->where('category_id',session('livCat')) as $otherVid)
+                                @if($loop->index <= session('totalCat'))
+                                    <option>{{$otherVid->order}}</option>
+                                @endif
+                                @if($loop->last && session('totalCat',-1) > 0)
+                                        <option>{{$otherVid->order + 1 }}</option>
+                                    @endif
+                            @endforeach
+                            @endif
+                        @else
+                            <option selected >{{$video->order}}</option>
+                            @foreach($videos->where('category_id',$video->category->id) as $otherVid)
+                                @if($loop->index <= $orderCount && $otherVid->order != $video->order)
+                                    <option>{{$otherVid->order}}</option>
+                                @endif
+                            @endforeach
+                        @endif
+
+                    </select>
+
+                    @error('order')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{$message}}</strong>
+                    @enderror
                 </div>
-                <div class="input-group mb-3">
-                <select class="custom-select" id="CategoriaSelect"  name="category_id"
-                class="form-control @error('category_id')
-                    is-invalid
-                @enderror"
-                value="category->title">
-                <option value="{{$video-> category->id}}"selected> {{$video-> category->title}} </option>
-                 @foreach($categorias as $categoria)
-                        <option  value="{{$categoria -> id}}">{{$categoria -> title}}</option>
-                    @endforeach
-                </select>
-                @error('category_id')  <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-            @enderror
+                <input type="hidden" id="lastOrder" name="lastOrder" value="{{$video->order}}">
+                <input type="hidden" id="pic_id" name="pic_id" value="{{$video->id}}">
+                <input type="hidden" id="category_change" name="category_change">
+                <input type="hidden" id="edit_vid" name="edit_vid" value="1">
+            </div>
+
+            <div class="col 6 ">
+                <div class="form-group">
+                    <label for="category_id">Categorias</label>
+                    <div class="input-group">
+                        <select id="category_id"  name="category_id"
+                                class="form-control @error('category_id')  is-invalid @enderror" >
+                            @if(old('category_id') == $video->category->id)
+
+                            <option selected value="{{$video->category->id}}">{{$video->category->title}}</option>
+                            @else
+                                <option value="{{$video->category->id}}">{{$video->category->title}}</option>
+                            @endif
+                            @foreach($categorias as $categoria)
+
+                                @if( $categoria -> title != $video-> category->title)
+                                    @if(old('category_id') == $categoria -> id)
+                                            <option selected  value="{{$categoria -> id}}">{{$categoria->title}}</option>
+                                        @else
+                                            <option value="{{$categoria -> id}}">{{$categoria->title}}</option>
+                                    @endif
+                                @endif
+
+                            @endforeach
+
+                        </select>
+                        @error('category_id')  <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        @enderror
+                    </div>
                 </div>
+                <input type="hidden" id="lastCategory" name="lastCategory" value="{{$video-> category->id}}">
             </div>
         </div>
-            <div class="col">
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Position (order)</label>
-                    <select class="form-control" id="order" name="order" value="{{ old('order') }}" value="video->order">
-                        <option>{{$video-> order}}</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                </select>
-            </div>
-        </div>
-        </div>
+
         <div class="form-group">
             <label for="exampleInputPassword1">Link</label>
             <input type="text" name="url" id="url" autocomplete="url" placeholder="Type url" class="form-control @error('url')
@@ -79,29 +122,14 @@
         <div class="pb-3 w-50">
             <x-embed url="{{ $video->url }}" />
         </div>
-        <!---
-             <div class="form-group"> -----image----
-                <label for="exampleInputPassword1">Image</label>
-                ---- filenames[]-----
-                <input type="file"  name="image" id="image"
-                class="form-control @error('name')
-                        is-invalid
-                    @enderror"
-                value="{{ $video->image }}"  aria-describedby="nameHelp">
-                @error('image')  <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-                @enderror
-        </div> ----------
-        <div class="w-50 "> -- show player image---
-             @if ($video->image)
-                <img class=" w-25  img-thumbnail" src="{{ asset('storage/' . $video->image) }}" alt="image"></td>
-             @else
-                <p>No Image</p>
-            @endif
-        </div>  --->
-            <div>
-                <span class="invalid-feedback" role="alert"></span>
+
+        <div class="form-group">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" switch="bool" @if ($video->is_active ==true) checked @endif value="{{$video->is_active}}">
+                <label class="custom-control-label" for="is_active">Estado Publicação</label>
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+
+        <button type="submit" class="btn btn-primary show_confirm_edit">Submit</button>
     </form>
 </div>

@@ -48,7 +48,7 @@ PaginaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title'        => 'required',
+           //'title'        => 'required',
             'description'  => 'required',
             'image'        => 'required|image|mimes:png,jpg,jpeg,svg,gif|max:2048'
         ]);
@@ -62,7 +62,7 @@ PaginaController extends Controller
         if($request->file('image')){
             $imagePath = $request->file('image');
 
-            $imageName = $pagina->id . '_' . $pagina->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
+            $imageName = $pagina->id . '_' . $pagina->page_name . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
             $path = $request->file('image')->storeAs('images/paginas/' . $pagina->id, $imageName, 'public');
             $pagina->image = $path;
             $pagina->save();
@@ -114,7 +114,7 @@ PaginaController extends Controller
             Storage::deleteDirectory('public/images/paginas/' . $pagina->id);
             $imagePath = $request->file('image');
            // $imageName = $paginas->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
-           $imageName = $pagina->id . '_' . $pagina->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
+           $imageName = $pagina->id . '_' . $pagina->page_name . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
            $path = $request->file('image')->storeAs('images/paginas/' . $pagina->id, $imageName, 'public');
 
 
@@ -137,5 +137,17 @@ PaginaController extends Controller
 
         return redirect('admin/paginas')->with('status', 'Item deleted successfully');
     }
+
+    public function updateState(Request $request ,Pagina $pagina)
+    {
+       //dd($testimonial);
+
+        $pagina->is_active    = $request->has('is_active');
+        $pagina->save();
+
+        return redirect('admin/paginas')->with('status', 'Estado da publicação atualizado com sucesso!');
+    }
+
+
 }
 

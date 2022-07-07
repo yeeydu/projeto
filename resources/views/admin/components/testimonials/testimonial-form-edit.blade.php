@@ -1,4 +1,4 @@
-<div class="container">
+<div id="media" class="container">
     <h2>EDIT - {{$testimonial->name}}</h2>
     <a href="{{url('admin/testimonials/') }}" class="btn btn-primary">Back</a>
     <form method="POST" action="{{url('admin/testimonials/' .$testimonial->id)}}" enctype="multipart/form-data">
@@ -25,6 +25,6 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary show_confirm_edit">Submit</button>
     </form>
 </div>

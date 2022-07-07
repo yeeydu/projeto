@@ -1,5 +1,5 @@
 
-<div class="container">
+<div id="media" class="container">
     <h2>Edit fotografia</h2>
     <a href="{{ url('admin/') }}" class="btn btn-primary">Back</a>
     <form method="POST" action="{{url('admin/sliders/'. $slider->id)}}" enctype="multipart/form-data">
@@ -47,6 +47,6 @@
             <div>
                 <span class="invalid-feedback" role="alert"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary show_confirm_edit">Update</button>
     </form>
 </div>

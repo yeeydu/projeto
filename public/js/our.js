@@ -137,8 +137,16 @@ $(document).ready(function () {
         var categoryChange = 1;
         $("#category_change").val(categoryChange);
         $("#category_change_create").val(categoryChange);
+        $("#category_video_change").val(categoryChange); //
+        $("#category_change_vid_create").val(categoryChange);
         if( $("#create_pic").val() == 1){
             $("#picCreate").submit();
+        }
+        else if( $("#create_video").val() == 1){
+            $("#videoCreate").submit();
+        }
+        else if( $("#edit_vid").val() == 1){
+            $("#videoEdit").submit();
         }
         else{
             $("#picEdit").submit();

@@ -1,6 +1,6 @@
 
-<div class="container">
-    <h2>Edit Page</h2>
+<div id="media" class="container">
+    <h2>Editar - {{$pagina->page_name}}</h2>
     <a href="{{ url('admin/paginas') }}" class="btn btn-primary">Back</a>
     <form method="POST" action="{{url('admin/paginas/'. $pagina->id)}}" enctype="multipart/form-data">
          @csrf
@@ -40,7 +40,7 @@
         </div> <!----------->
         <div class="w-50 "> <!-- show player image--->
              @if ($pagina->image)
-                <img class=" w-25  img-thumbnail" src="{{ asset('storage/' . $pagina->image) }}" alt="image"></td>
+                <img class="  img-thumbnail" src="{{ asset('storage/' . $pagina->image) }}" alt="image"></td>
              @else
                 <p>No Image</p>
             @endif
@@ -48,6 +48,6 @@
             <div>
                 <span class="invalid-feedback" role="alert"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary show_confirm_edit">Update</button>
     </form>
 </div>

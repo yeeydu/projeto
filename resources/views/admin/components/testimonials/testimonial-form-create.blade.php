@@ -24,7 +24,10 @@
                 <strong>{{$message}}</strong>
             @enderror
         </div>
-
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" switch="bool">
+            <label class="custom-control-label" for="is_active">Publicar</label>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

@@ -99,7 +99,7 @@
                 style="width: 60px; background-color: #443549; height: 2px"
                 />
             <p>
-              <a href="precos" class="text-dark">Preços</a>
+              <a href="faqs" class="text-dark">FAQs</a>
             </p>
             <p>
               <a href="politica-de-cookies" class="text-dark">Política de Cookies</a>

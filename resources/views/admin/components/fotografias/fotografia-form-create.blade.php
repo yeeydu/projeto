@@ -7,9 +7,9 @@
             </button>
         </div>
     @endif
-    <h2>Nova Foto</h2>
+    <h2>Nova Fotografia</h2>
     <a href="{{ url('admin/fotografias') }}" class="btn btn-primary">Voltar</a>
-        <h1>{{session('totalCat',-1)}}</h1>
+     <!--   <h1>{{session('totalCat',-1)}}</h1> -->
     <form id="picCreate" method="POST" action="{{url('admin/fotografias')}}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">

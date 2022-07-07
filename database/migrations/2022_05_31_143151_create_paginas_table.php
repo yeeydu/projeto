@@ -15,10 +15,11 @@ class CreatePaginasTable extends Migration
     {
         Schema::create('paginas', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->boolean('is_active')->default(0);
+            $table->string('page_name');
             $table->timestamps();
             $table->softDeletes();
         });

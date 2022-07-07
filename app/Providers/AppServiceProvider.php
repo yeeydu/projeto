@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // View composer for footer
         View::composer(['master.footer'], function($view){
-            $pagina = Pagina::where('title','contactos')->first();
+            $pagina = Pagina::where('page_name','contactos')->first();
             $view->with('pagina', $pagina);
     });
 

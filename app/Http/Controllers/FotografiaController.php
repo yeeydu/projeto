@@ -22,7 +22,7 @@ class FotografiaController extends Controller
     }
 
     public function index()
-    {
+    {   
         $fotografias = Fotografia::orderBy('order', 'asc')->paginate(10);
         return view('admin.pages.fotografias.index', ['fotografias' => $fotografias]);
 
@@ -97,7 +97,7 @@ class FotografiaController extends Controller
                 }
 
 
-                return redirect('admin/fotografias')->with('status', 'Pack criado com sucesso!');
+                return redirect('admin/fotografias')->with('status', 'Criado com sucesso!');
             } catch (\Exception $exception) {
                 return redirect('admin/fotografias/create')->with('failed', 'Ocorreu um erro! Tente Novamente');
             }
@@ -126,7 +126,7 @@ class FotografiaController extends Controller
     public function edit(Fotografia $fotografia)
     {
         $category = Category::all();
-        $fotografias =Fotografia::orderBy('order', 'asc')->get();
+        $fotografias = Fotografia::orderBy('order', 'asc')->get();
         $orderCount = Fotografia::where('category_id',$fotografia->category->id)->count();
 
         return view('admin.pages.fotografias.edit', [  'fotografia' => $fotografia,
@@ -244,9 +244,7 @@ class FotografiaController extends Controller
         }catch (\Exception $exception){
             return redirect('admin/fotografias/'.$fotografia->id.'/edit')->with('failed', 'Ocorreu um erro! Tente Novamente');
         }
-
     }
-
     /**
      * Remove the specified resource from storage.
      *

@@ -1,6 +1,6 @@
 
 <div class="container">
-    <h2>Show Page</h2>
+    <h2>Show - {{$paginas->page_name}}</h2>
     <a href="{{ url('admin/paginas') }}" class="btn btn-primary">Back</a>
       
         <div class="form-group">
@@ -14,12 +14,9 @@
             <strong>{{ $message }}</strong>
             @enderror
         </div>
-        <div>
-            <label for="exampleInputPassword1">Description</label>
-            <p rows="14" type="text"   
-            class="form-control @error('description')
-                    is-invalid
-                @enderror">{!!$paginas->description!!}</p>    
+        <span>Description</span>
+        <div class="show-style">
+                {!!$paginas->description!!}
         </div>
 
         <label for="exampleInputPassword1">Image</label>
