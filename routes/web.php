@@ -60,6 +60,9 @@ Route::group([ 'middleware' => 'admin'], function () {
     // ...Testemonials
     Route::resource('admin/testimonials', 'TestimonialController');
     Route::put('admin/testimonials/update/{testimonial}', 'TestimonialController@updateState')->name('testimonials.update-state');
+     // ...FAQS
+     Route::resource('admin/faqs', 'FaqController');
+     Route::put('admin/faqs/update/{faq}', 'FaqController@updateState')->name('faqs.update-state');
 
     Route::resource('admin/orcamentos', 'OrcamentoController');
 

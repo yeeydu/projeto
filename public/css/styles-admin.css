@@ -220,6 +220,9 @@ a[href*="#settings"]::before {
 .testimonial-icon::before{
     content: "\f10e" !important;
 }
+.faq-icon::before{
+    content: "\f059" !important;
+}
 .pages-icon::before{
     content: "\f15c" !important;
 }
@@ -228,7 +231,7 @@ a[href*="#settings"]::before {
 }
 
 /*-------------------------------*/
-/*       Hamburger-Cross         */
+/*       Hamburger-Cross         */   
 /*-------------------------------*/
 
 .hamburger {

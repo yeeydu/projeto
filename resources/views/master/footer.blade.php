@@ -78,13 +78,13 @@
                 style="width: 60px; background-color: #443549; height: 2px"
                 />
             <p>
-              <a href="videos" class="text-dark">Video</a>
+              <a href="{{route('videos')}}" class="text-dark">Video</a>
             </p>
             <p>
-              <a href="fotografias" class="text-dark">Fotografia</a>
+              <a href="{{route('fotografias')}}" class="text-dark">Fotografia</a>
             </p>
             <p>
-             <a href="corporate" class="text-dark">Corporate</a>
+             <a href="{{route('corporate')}}" class="text-dark">Corporate</a>
            </p>
 
           </div>
@@ -99,13 +99,13 @@
                 style="width: 60px; background-color: #443549; height: 2px"
                 />
             <p>
-              <a href="faqs" class="text-dark">FAQs</a>
+              <a href="{{route('faqs')}}" class="text-dark">FAQs</a>
             </p>
             <p>
-              <a href="politica-de-cookies" class="text-dark">Política de Cookies</a>
+              <a href="{{route('politica-de-cookies')}}" class="text-dark">Política de Cookies</a>
             </p>
             <p>
-              <a href="politica-de-privacidade" class="text-dark">Política de Privacidade</a>
+              <a href="{{route('politica-de-privacidade')}}" class="text-dark">Política de Privacidade</a>
             </p>
 
           </div>

@@ -16,6 +16,7 @@
                 <li class="@if(Request::is('admin/fotografias')) active @endif"><a href="{{ url('admin/fotografias') }}">Fotografias</a></li>
                 <li class="@if(Request::is('admin/videos')) active @endif"><a class="video-icon" href="{{ url('admin/videos') }}">Videos</a></li>
                 <li class="@if(Request::is('admin/testimonials')) active @endif"><a class="testimonial-icon" href="{{ url('admin/testimonials') }}">Testimonios</a></li>
+                <li class="@if(Request::is('admin/faqs')) active @endif"><a class="faq-icon" href="{{ url('admin/faqs') }}">FAQS</a></li>
                 <li class="dropdown">
                     <a class="price-icon" href="#prices" class="dropdown-toggle"  data-toggle="dropdown" >Preços<span class="caret"></span></a>
                     <ul class="dropdown-menu animated fadeInLeft @if(Request::is('admin/precos','admin/extras','admin/custom-price')) show @endif" role="menu">

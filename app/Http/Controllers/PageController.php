@@ -12,6 +12,7 @@ use App\Fotografia;
 use App\Slider;
 use App\Category;
 use App\Testimonial;
+use App\Faq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -171,7 +172,8 @@ class PageController extends Controller
       ->whatsapp('Diogo Pinto');
 
       $pagina = Pagina::where('page_name','faqs')->where('is_active','1')->first();
-       return view('pages/faqs', [  'pagina' => $pagina, 'shareComponent' => $shareComponent]);
+      $faqs = Faq::where('is_active','1')->orderBy('id', 'desc')->paginate(10);
+       return view('pages/faqs', [  'pagina' => $pagina, 'faqs' => $faqs , 'shareComponent' => $shareComponent]);
     }
 
 
