@@ -107,8 +107,18 @@ class UsersController extends Controller
                 'quote_request_email.email'     => 'Introduza um email válido',
             ]);
         try {
-            $user->update($request->all());
-            return redirect()->route('users.index')->with('status', 'Pack atualizado com sucesso!');
+            //dd($request->quote_request_is_active);
+            $user->update($request->except('quote_request_is_active'));
+
+            $user->quote_request_is_active    = $request->has('quote_request_is_active');
+            $user->save();
+            /*$user->mobile_number = $request->mobile_number;
+            $user->address = $request->address;
+            $user->quote_request_email = $request->quote_request_email;
+            $user->quote_request_is_active = $request->quote_request_is_active;
+            $user->save();*/
+
+            return redirect()->route('users.index')->with('status', 'Utilizador atualizado com sucesso!');
         }catch (\Exception $exception){
             return redirect()->route('user.edit',[$user->id])->with('failed', 'Ocorreu um erro! Tente Novamente');
         }
