@@ -11139,9 +11139,14 @@ body {
 
 .pack-card__service {
   margin: 74px 0px 82px 0px;
-  background-image: linear-gradient(to right, #fff2f4, rgba(248, 248, 254, 0.5803921569));
+  background-image: linear-gradient(to right, #fff2f4, rgba(251, 248, 254, 0.5803921569));
   padding: 100px 0px 100px 0px;
   border-radius: 10px;
+}
+
+.pack-card__service_bg {
+  margin: 74px 0px 82px 0px;
+  padding: 100px 0px 100px 0px;
 }
 
 .pack-card {
