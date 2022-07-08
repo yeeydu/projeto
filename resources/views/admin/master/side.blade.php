@@ -15,14 +15,14 @@
                 <li class="@if(Request::is('admin/paginas')) active @endif"><a class="pages-icon" href="{{ url('admin/paginas') }}">Paginas</a></li>
                 <li class="@if(Request::is('admin/fotografias')) active @endif"><a href="{{ url('admin/fotografias') }}">Fotografias</a></li>
                 <li class="@if(Request::is('admin/videos')) active @endif"><a class="video-icon" href="{{ url('admin/videos') }}">Videos</a></li>
-                <li class="@if(Request::is('admin/testimonials')) active @endif"><a class="testimonial-icon" href="{{ url('admin/testimonials') }}">Testimonios</a></li>
+                <li class="@if(Request::is('admin/testimonials')) active @endif"><a class="testimonial-icon" href="{{ url('admin/testimonials') }}">Testemunhos</a></li>
                 <li class="@if(Request::is('admin/faqs')) active @endif"><a class="faq-icon" href="{{ url('admin/faqs') }}">FAQS</a></li>
                 <li class="dropdown">
                     <a class="price-icon" href="#prices" class="dropdown-toggle"  data-toggle="dropdown" >Preços<span class="caret"></span></a>
                     <ul class="dropdown-menu animated fadeInLeft @if(Request::is('admin/precos','admin/extras','admin/custom-price')) show @endif" role="menu">
                         <li class="@if(Request::is('admin/precos')) active @endif"><a class="price-icon" href="{{route('packs.index') }}">Packs</a></li>
                         <li class="@if(Request::is('admin/extras')) active @endif"><a class="price-icon" href="{{route('extras.index') }}">Extras</a></li>
-                        <li class="@if(Request::is('admin/custom-price')) active @endif"><a class="price-icon" href="{{route('custom-price.index') }}">Orçamento</a></li>
+                  <!--   <li class="@if(Request::is('admin/custom-price')) active @endif"><a class="price-icon" href="{{route('custom-price.index') }}">Orçamento</a></li> ---->
                     </ul>
                 </li>
                 <li class="dropdown">
