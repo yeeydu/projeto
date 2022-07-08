@@ -6,6 +6,7 @@ use App\Extra;
 use App\Mail\NewMail;
 use App\Pack;
 use App\Page;
+use App\User;
 use App\Video;
 use App\Pagina;
 use App\Fotografia;
@@ -48,6 +49,7 @@ class PageController extends Controller
 
     public function sobre()
     {
+
       $shareComponent = \Share::page('https://diogopinto.pt/sobre', 'Sou o Diogo um apaixonado pelas artes do cinema e o meu desejo era sem dúvida alguma abraçar a área do cinema. ')
       ->facebook('Diogo Pinto')
       ->twitter('Diogo Pinto')
@@ -85,7 +87,7 @@ class PageController extends Controller
       $pagina = Pagina::where('page_name','videos')->where('is_active','1')->first();
       $videos = Video::select("*")
       ->where("category_id", 2)
-      ->where('is_active','1')  
+      ->where('is_active','1')
       ->orderBy("order", "asc")->get();
 
        return view('pages/videos', ['videos' => $videos, 'pagina' => $pagina, 'shareComponent' => $shareComponent]);
@@ -133,7 +135,7 @@ class PageController extends Controller
         $pagina = Pagina::where('page_name','precos')->first();
         $extras = Extra::where('is_active','1')->orderBy('order', 'asc')->get();
         return view('pages/pack-show', [ 'pagina' => $pagina, 'pack' => $pack, 'extras' => $extras]);
-        
+
     }
 
 
@@ -216,9 +218,13 @@ class PageController extends Controller
         ];
 
 //auth()->user()->email
-        $subject = 'Pedido de Contacto';
-        $viewSend = 'emails.contact-mail';
-        Mail::to('andreteixeira.csn@gmail.com')->send(new NewMail($data,$subject,$viewSend));
+        $users = User::all();
+        foreach ($users as $user){
+            $subject = 'Pedido de Contacto';
+            $viewSend = 'emails.contact-mail';
+            Mail::to($user->quote_request_email)->send(new NewMail($data,$subject,$viewSend));
+        }
+
         return back()->with('success', 'Email enviado com sucesso! Entraremos em contacto em breve!');
 
     }
@@ -269,10 +275,12 @@ class PageController extends Controller
             'extras'        =>$arr
         ];
         //return view('emails.pack-info-mail')->with('data',$data);
-
-        $subject = 'Pedido de Orçamento - '.$request->packName;
-        $viewSend = 'emails.pack-info-mail';
-        Mail::to('andreteixeira.csn@gmail.com')->send(new NewMail($data,$subject,$viewSend));
+        $users = User::all();
+        foreach ($users as $user) {
+            $subject = 'Pedido de Orçamento - ' . $request->packName;
+            $viewSend = 'emails.pack-info-mail';
+            Mail::to($user->quote_request_email)->send(new NewMail($data, $subject, $viewSend));
+        }
         return back()->with('success', 'Email enviado com sucesso! Entraremos em contacto em breve!');
     }
 }

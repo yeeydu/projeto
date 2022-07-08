@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('index');
 });
+Auth::routes(['verify' => true]);
 //Rota de teste para validação da pass
 Route::get('/teste/{email}', function (Request $request) {
     if (! $request->hasValidSignature()) {
@@ -63,6 +64,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/orcamentos', 'OrcamentoController');
 
     Route::get('admin/users','Admin\UsersController@index')->name('users.index');
+    Route::get('admin/users/{user}','Admin\UsersController@show')->name('user.show');
+    Route::get('admin/users/{user}/edit','Admin\UsersController@edit')->name('user.edit');
+    Route::put('admin/users/{user}', 'Admin\UsersController@update')->name('user.update');
+    Route::put('admin/users/update/{user}', 'Admin\UsersController@updateState')->name('user.update-state');
 
     Route::post('admin/precos','PackController@store')->name('pack.store');
     Route::get('admin/precos','PackController@index')->name('packs.index');

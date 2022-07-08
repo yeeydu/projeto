@@ -26,8 +26,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#settings" class="dropdown-toggle"  data-toggle="dropdown">Utilizador<span class="caret"></span></a>
-                    <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                        <div class="dropdown-header">Definições</div>
+                    <ul class="dropdown-menu animated fadeInLeft @if(Request::is('admin/users')) show @endif" role="menu">
                         <li class="@if(Request::is('admin/users')) active @endif"><a class="user-settings" href="{{route('users.index') }}">Gestão</a></li>
                         <li><a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}</a>
@@ -35,7 +34,7 @@
                                 @csrf
                             </form>
                         </li>
-                    </ul>:
+                    </ul>
                 </li>
 
             </ul>

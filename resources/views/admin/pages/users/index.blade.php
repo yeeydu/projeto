@@ -2,7 +2,7 @@
 @section('content')
 
 
-    @component('admin.components.packs.paks-list', ['packs' => $packs])
+    @component('admin.components.users.users-list', ['users' => $users])
 
     @endcomponent
 
