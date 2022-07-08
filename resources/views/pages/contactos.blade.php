@@ -19,7 +19,7 @@
                 </button>
             </div>
         @endif
-    <div class="container pack-show">
+    <div class="container pack-show mb-4">
             <div class="row justify-content-center mt-1">
                 <div class="col col-md-10 col-lg-8">
                     <h3 class="text-center mb-3 contactTitle">Contacte-nos</h3>
@@ -72,27 +72,28 @@
 
                 </div>
             </div>
-    </div>
-            <div class="row justify-content-center mt-5">
-                <div class="col-12 col-lg-8">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center mt-5 ">
+                <div class="col-md-10 col-lg-8">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48046.937100940806!2d-8.190570360101571!3d41.17961612044397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2497c7cf5a2aef%3A0x5d25f358cbfb056f!2sMarco%20de%20Canaveses!5e0!3m2!1spt-PT!2spt!4v1654044940176!5m2!1spt-PT!2spt"
-                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48046.937100940806!2d-8.190570360101571!3d41.17961612044397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2497c7cf5a2aef%3A0x5d25f358cbfb056f!2sMarco%20de%20Canaveses!5e0!3m2!1spt-PT!2spt!4v1654044940176!5m2!1spt-PT!2spt"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 @if($pagina != null)
-                <div class="col-12 col-lg-4 my-4">
-
+                <div class="col-12 col-lg-4 my-auto">
+                    
                     {!! $pagina->description !!}
                 </div>
                 @endif
             </div>
-  <!--- Social share -->
-            <div class="row">
+            <!--- Social share -->
+            <div class="row mt-5  ">
                 <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
-                 <p>Share the love</p>
-                  {!! $shareComponent !!}
-                 </div>
+                    <p>Share the love</p>
+                    {!! $shareComponent !!}
+                </div>
             </div>
-    </div>
+        </div>
 @endsection

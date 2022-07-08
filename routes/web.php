@@ -46,7 +46,8 @@ Route::get('/politica-de-privacidade', 'PageController@privacidade')->name('poli
 Route::get('/faqs', 'PageController@faqs')->name('faqs');
 Route::get('admin/fotografias/query', 'FotografiaController@picsQuery')->name('pic.update-state');
 Route::get('/admin', 'HomeController@index')->name('admin');
-Route::group(['middleware' => 'admin'], function () {
+
+Route::group([ 'middleware' => 'admin'], function () {
 
     // ...Paginas Site
     Route::resource('admin/paginas', 'PaginaController');
@@ -60,6 +61,9 @@ Route::group(['middleware' => 'admin'], function () {
     // ...Testemonials
     Route::resource('admin/testimonials', 'TestimonialController');
     Route::put('admin/testimonials/update/{testimonial}', 'TestimonialController@updateState')->name('testimonials.update-state');
+     // ...FAQS
+     Route::resource('admin/faqs', 'FaqController');
+     Route::put('admin/faqs/update/{faq}', 'FaqController@updateState')->name('faqs.update-state');
 
     Route::resource('admin/orcamentos', 'OrcamentoController');
 
@@ -90,7 +94,7 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/custom-price','CustomPriceController@index')->name('custom-price.index');
     // ...Sliders
-    Route::resource('admin/sliders', 'SliderController');
+    Route::resource('admin/sliders', 'SliderController')->middleware('optimizeImages');
     Route::put('admin/sliders/update/{slider}', 'SliderController@updateState')->name('slider.update-state');
     Route::get('admin/', 'SliderController@index');
 

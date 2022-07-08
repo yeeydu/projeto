@@ -30,14 +30,14 @@
             </button>
         </div>
     @endif
-    <div class="container-fluid">
+    <div class="container-fluid ">
 
         <!--- Photos  -->
         @if ($fotografias->isNotEmpty())
-            <div class="row mb-5 mt-5 text-center">
+            <div class="row mb-5 mt-5 text-center pt-4 pb-4">
                 @foreach ($fotografias as $foto)
                     <div class="col-lg-4 col-md-4 col-sm-6 pb-2">
-                        <div class="pb-2">
+                        <div class="pb-2 mt-2 mb-2">
                             @if ($foto->image)
                                 <a href="/fotografias">
                                     <img class="w-100 imgHome" src="{{ asset('storage/' . $foto->image) }}"
@@ -53,8 +53,13 @@
         @endif
 
         <!--- Pack Card Services -->
-        <div class="w-100 p-3 pack-card__service">
-            <div class="container-fluid">
+        <div class="container-fluid  pack-card__service_bg mx-auto px-auto my-3 py-3">
+            <div class="row justify-content-center ">
+                <div class="col-md-4 col-lg-4 col-xl-4 text-center">
+                    <h2>Serviços</h2>
+                </div>
+            </div>
+            <div class="w-100 p-3 pack-card__service">
                 <div class="row align-items-stretch">
                     <div class="col-12 col-md-6 col-lg-3">
                         @component('components.pack-card',
@@ -87,7 +92,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         @component('components.pack-card',
                             [
-                                'title' => 'Orçamentos',
+                                'title' => 'Preços',
                                 'image' => './img/pack-cards/l-j2.jpg',
                                 'url' => '/precos',
                             ])
@@ -98,7 +103,13 @@
         </div>
 
         <!--- Testimonials -->
+        <div class="row justify-content-center m-3">
+            <div class="col-md-4 col-lg-4 col-xl-4 text-center">
+                <h2>Testemunhos</h2>
+            </div>
+        </div>
         @if ($testimonials->isNotEmpty())
+        
             <div id="testimonial" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner ">
                     @foreach ($testimonials as $testimonial)
@@ -124,8 +135,8 @@
         @endif
 
         <!--- Social share -->
-        <div class="row">
-            <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-lg-4 col-xl-4 text-center" id="social-links">
                 <p>Share the love</p>
                 {!! $shareComponent !!}
             </div>

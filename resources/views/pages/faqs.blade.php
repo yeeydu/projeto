@@ -9,7 +9,7 @@
             </div> 
         </div>
     </div>
-<div class="container mt-3 mb-5">
+<div class="container mt-2 mb-5">
         <div class="row justify-content-center">
             <div class="col col-md-12 col-lg-12 col-sm-12 col-xs-12">
 
@@ -19,7 +19,16 @@
             </div>
         </div>
         @endif
+
+    <div class="row mt-5">
+        <div class="col col-lg-12 col-md-12 col-dm-12">
+            @foreach($faqs as $faq)
+            <h3>{{$faq->question}}</h3>
+            <p>{!! $faq->answer !!}</p>
+            @endforeach
+        </div>
     </div>
+</div>
       <!--- Social share -->
     <div class="row">
         <div class="col-md-4 col-lg-4 col-xl-4" id="social-links">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 
 class SliderController extends Controller
 {
@@ -56,7 +57,7 @@ class SliderController extends Controller
         $slider->description  = $request->description;
         $slider->save();
         
-        //If we have an image file, we store it, and move it in the database
+        //If we have an image file, we store it, and move it in the database // ImageOptimizer::optimize($pathToImage);
         if($request->file('image')){
             $imagePath = $request->file('image');
             $imageName = $slider->id . '_' . $slider->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
