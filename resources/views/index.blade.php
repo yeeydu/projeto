@@ -56,7 +56,7 @@
         <div class="container-fluid  pack-card__service_bg mx-auto px-auto my-3 py-3">
             <div class="row justify-content-center ">
                 <div class="col-md-4 col-lg-4 col-xl-4 text-center">
-                    <h2>Serviços</h2>
+                    <h1>Serviços</h1>
                 </div>
             </div>
             <div class="w-100 p-3 pack-card__service">
@@ -105,7 +105,7 @@
         <!--- Testimonials -->
         <div class="row justify-content-center m-3">
             <div class="col-md-4 col-lg-4 col-xl-4 text-center">
-                <h2>Testemunhos</h2>
+                <h1>Testemunhos</h1>
             </div>
         </div>
         @if ($testimonials->isNotEmpty())
